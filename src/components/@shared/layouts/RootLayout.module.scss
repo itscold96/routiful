@@ -1,0 +1,11 @@
+.rootLayout {
+  display: flex;
+  justify-content: center;
+  padding: 20px 12px;
+}
+
+.rootLayoutContent {
+  width: 100%;
+  max-width: 768px;
+  overflow: hidden;
+}
