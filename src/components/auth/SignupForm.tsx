@@ -14,9 +14,13 @@ const validConfig: ValidationConfig = {
     required: '비밀번호를 입력해주세요',
     pattern: VALID_OPTIONS.passwordPattern,
   },
+  passwordConfirmation: {
+    required: '비밀번호를 한 번 더 입력해주세요',
+    pattern: VALID_OPTIONS.emailPattern,
+  },
 };
 
-export default function LoginForm() {
+export default function SignupForm() {
   const { register, errors, handleSubmit } = useValidForm({ validationConfig: validConfig });
 
   const handleFormSubmit = (formData: FieldValues) => {
@@ -27,13 +31,19 @@ export default function LoginForm() {
     <form className={S.authForm} onSubmit={handleSubmit(handleFormSubmit)}>
       <Input label={'이메일'} register={register.email} error={errors.email} message={errors.email?.message} />
       <Input
-        type={'password'}
         label={'비밀번호'}
         register={register.password}
         error={errors.password}
         message={errors.password?.message}
       />
-      <button>Login</button>
+      <Input
+        type={'password'}
+        label={'비밀번호 확인'}
+        register={register.passwordConfirmation}
+        error={errors.passwordConfirmation}
+        message={errors.passwordConfirmation?.message}
+      />
+      <button>Signup</button>
     </form>
   );
 }

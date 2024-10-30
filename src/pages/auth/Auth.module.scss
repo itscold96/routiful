@@ -1,2 +1,18 @@
+@use '/src/styles/abstracts/core' as *;
+
 .AuthContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .memberCheck {
+    text-align: center;
+    font-size: 17px;
+
+    span {
+      cursor: pointer;
+      color: $red;
+      padding-left: 10px;
+    }
+  }
 }
