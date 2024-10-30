@@ -1,0 +1,15 @@
+@use '/src/styles/abstracts/core' as *;
+
+.slogan {
+  font-size: 40px;
+  line-height: 130%;
+  font-weight: 700;
+
+  .red {
+    color: $red;
+  }
+
+  .stroke {
+    font-weight: 900;
+  }
+}

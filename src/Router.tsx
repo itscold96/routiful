@@ -1,5 +1,5 @@
 import RootLayout from 'components/@shared/layouts/RootLayout';
-import Auth from 'pages/Auth';
+import Auth from 'pages/auth/Auth';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 export default function Router() {
