@@ -1,0 +1,16 @@
+.searchForm {
+  position: relative;
+
+  .searchIcon {
+    position: absolute;
+    top: 9px;
+    left: 10px;
+  }
+
+  .search {
+    input {
+      height: 38px;
+      padding-left: 35px;
+    }
+  }
+}

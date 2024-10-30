@@ -16,3 +16,9 @@
     @content;
   }
 }
+
+// font
+@mixin listTitle {
+  font-size: 40px;
+  font-weight: 700;
+}
