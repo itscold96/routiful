@@ -1,7 +1,7 @@
 import S from './AuthForm.module.scss';
 import Input from 'components/@shared/input/Input';
 import { VALID_OPTIONS } from 'constants/validOption';
-import { signin } from 'fetches/signin';
+import { signup } from 'fetches/signup';
 import { useValidForm } from 'hooks/useValidForm';
 import { FieldValues } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
@@ -16,22 +16,31 @@ const validConfig: ValidationConfig = {
     required: '비밀번호를 입력해주세요',
     pattern: VALID_OPTIONS.passwordPattern,
   },
+  passwordConfirmation: {
+    required: '비밀번호를 한 번 더 입력해주세요',
+    pattern: VALID_OPTIONS.passwordPattern,
+    validate: {
+      matched: (value, formValues) => value === formValues.password || '비밀번호와 일치하지 않습니다.',
+    },
+  },
 };
 
-export default function LoginForm() {
+export default function SignupForm() {
   const { register, errors, handleSubmit, reset } = useValidForm({ validationConfig: validConfig });
   const navigate = useNavigate();
 
   const handleFormSubmit = async (formData: FieldValues) => {
     if (formData.email && formData.password) {
       const { email, password } = formData;
-      const error = await signin({ email, password });
+      const error = await signup({ email, password });
 
+      // axios나 fetch가 아니라 supabase client를 이용하기 때문에,
+      // try catch로 에러가 잡히지 않음
       if (error) {
-        if (error.status === 400) {
-          alert('잘못된 유저 정보입니다.');
+        if (error.status === 422) {
+          alert('이미 가입된 이메일입니다.');
         } else {
-          alert('로그인에 실패하였습니다.');
+          alert('회원가입에 실패하였습니다.');
         }
         reset();
         return;
@@ -51,7 +60,14 @@ export default function LoginForm() {
         error={errors.password}
         message={errors.password?.message}
       />
-      <button>Login</button>
+      <Input
+        type={'password'}
+        label={'비밀번호 확인'}
+        register={register.passwordConfirmation}
+        error={errors.passwordConfirmation}
+        message={errors.passwordConfirmation?.message}
+      />
+      <button>Signup</button>
     </form>
   );
 }

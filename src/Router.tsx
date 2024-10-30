@@ -1,5 +1,5 @@
 import RootLayout from 'components/@shared/layouts/RootLayout';
-import Auth from 'pages/auth/Auth';
+import Landing from 'pages/landing/Landing';
 import Routine from 'pages/routine/Routine';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ export default function Router() {
     <BrowserRouter>
       <RootLayout>
         <Routes>
-          <Route path={'/'} element={<Auth />} />
+          <Route path={'/'} element={<Landing />} />
           <Route path={'/routine'} element={<Routine />} />
         </Routes>
       </RootLayout>

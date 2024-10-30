@@ -1,13 +1,13 @@
-import LoginForm from 'components/auth/LoginForm';
-import S from './Auth.module.scss';
-import Slogan from 'components/auth/Slogan';
-import SignupForm from 'components/auth/SignupForm';
+import S from './Landing.module.scss';
+import Slogan from 'components/landing/slogan/Slogan';
+import LoginForm from 'components/landing/form/LoginForm';
+import SignupForm from 'components/landing/form/SignupForm';
 import { useToggle } from 'hooks/useToggle';
 
-export default function Auth() {
+export default function Landing() {
   const { toggleValue: isLoginForm, toggleDispatch } = useToggle(true);
   return (
-    <div className={S.AuthContainer}>
+    <div className={S.landingContainer}>
       <Slogan />
       {isLoginForm ? <LoginForm /> : <SignupForm />}
       <p className={S.memberCheck}>
