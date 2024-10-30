@@ -1,8 +1,10 @@
 import S from './AuthForm.module.scss';
 import Input from 'components/@shared/input/Input';
 import { VALID_OPTIONS } from 'constants/validOption';
+import { signup } from 'fetches/signup';
 import { useValidForm } from 'hooks/useValidForm';
 import { FieldValues } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { ValidationConfig } from 'types/validation';
 
 const validConfig: ValidationConfig = {
@@ -16,21 +18,38 @@ const validConfig: ValidationConfig = {
   },
   passwordConfirmation: {
     required: '비밀번호를 한 번 더 입력해주세요',
-    pattern: VALID_OPTIONS.emailPattern,
+    pattern: VALID_OPTIONS.passwordPattern,
   },
 };
 
 export default function SignupForm() {
-  const { register, errors, handleSubmit } = useValidForm({ validationConfig: validConfig });
+  const { register, errors, handleSubmit, reset } = useValidForm({ validationConfig: validConfig });
+  const navigate = useNavigate();
 
-  const handleFormSubmit = (formData: FieldValues) => {
-    console.log('제출', formData);
+  const handleFormSubmit = async (formData: FieldValues) => {
+    if (formData.email && formData.password) {
+      const { email, password } = formData;
+      const error = await signup({ email, password });
+
+      if (error) {
+        if (error.status === 422) {
+          alert('이미 가입된 이메일입니다.');
+          reset();
+        } else {
+          alert('회원가입에 실패하였습니다.');
+        }
+        return;
+      }
+
+      navigate('/routine');
+    }
   };
 
   return (
     <form className={S.authForm} onSubmit={handleSubmit(handleFormSubmit)}>
       <Input label={'이메일'} register={register.email} error={errors.email} message={errors.email?.message} />
       <Input
+        type={'password'}
         label={'비밀번호'}
         register={register.password}
         error={errors.password}
