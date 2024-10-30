@@ -34,10 +34,10 @@ export default function SignupForm() {
       if (error) {
         if (error.status === 422) {
           alert('이미 가입된 이메일입니다.');
-          reset();
         } else {
           alert('회원가입에 실패하였습니다.');
         }
+        reset();
         return;
       }
 
