@@ -1,0 +1,19 @@
+@use '/src/styles/abstracts/core' as *;
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  padding-top: 30px;
+
+  button {
+    height: 50px;
+
+    border-radius: 8px;
+    background-color: $red;
+
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
