@@ -52,8 +52,15 @@ export default function SignupForm() {
 
   return (
     <form className={S.authForm} onSubmit={handleSubmit(handleFormSubmit)}>
-      <Input label={'이메일'} register={register.email} error={errors.email} message={errors.email?.message} />
       <Input
+        label={'이메일'}
+        htmlFor={'email'}
+        register={register.email}
+        error={errors.email}
+        message={errors.email?.message}
+      />
+      <Input
+        htmlFor={'password'}
         type={'password'}
         label={'비밀번호'}
         register={register.password}
@@ -61,6 +68,7 @@ export default function SignupForm() {
         message={errors.password?.message}
       />
       <Input
+        htmlFor={'passwordConfirmation'}
         type={'password'}
         label={'비밀번호 확인'}
         register={register.passwordConfirmation}

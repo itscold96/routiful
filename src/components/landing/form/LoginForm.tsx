@@ -45,8 +45,15 @@ export default function LoginForm() {
 
   return (
     <form className={S.authForm} onSubmit={handleSubmit(handleFormSubmit)}>
-      <Input label={'이메일'} register={register.email} error={errors.email} message={errors.email?.message} />
       <Input
+        htmlFor={'email'}
+        label={'이메일'}
+        register={register.email}
+        error={errors.email}
+        message={errors.email?.message}
+      />
+      <Input
+        htmlFor={'password'}
         type={'password'}
         label={'비밀번호'}
         register={register.password}
