@@ -1,9 +1,22 @@
 @use '/src/styles/abstracts/core' as *;
 
 .slogan {
-  font-size: 40px;
+  font-size: 65px;
   line-height: 130%;
   font-weight: 700;
+
+  @include mobile {
+    font-size: 40px;
+  }
+
+  .icon {
+    height: 65px;
+    width: auto;
+
+    @include mobile {
+      height: 40px;
+    }
+  }
 
   .red {
     color: $red;
