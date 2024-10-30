@@ -46,6 +46,7 @@ export default function LoginForm() {
   return (
     <form className={S.authForm} onSubmit={handleSubmit(handleFormSubmit)}>
       <Input
+        value={process.env.REACT_APP_TEST_ACCOUNT_ID}
         htmlFor={'email'}
         label={'이메일'}
         register={register.email}
@@ -53,6 +54,7 @@ export default function LoginForm() {
         message={errors.email?.message}
       />
       <Input
+        value={process.env.REACT_APP_TEST_ACCOUNT_PASSWORD}
         htmlFor={'password'}
         type={'password'}
         label={'비밀번호'}
