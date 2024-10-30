@@ -27,6 +27,7 @@ export const useValidForm = ({ validationConfig, mode = 'onChange' }: UseValidFo
         if (Object.hasOwn(validationConfig, `${fieldName}Confirmation`)) {
           // Confirmation이 postfix로 붙어 확인이 필요한 인자가 formConfig에 존재한다면
           // 해당 입력에 따라 확인 유효성 검사도 함께 작동하도록 구현
+          // 단, config에 validate 옵션이 별도로 필요함
           trigger(`${fieldName}Confirmation`);
         }
 

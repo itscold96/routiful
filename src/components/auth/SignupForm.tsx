@@ -19,6 +19,9 @@ const validConfig: ValidationConfig = {
   passwordConfirmation: {
     required: '비밀번호를 한 번 더 입력해주세요',
     pattern: VALID_OPTIONS.passwordPattern,
+    validate: {
+      matched: (value, formValues) => value === formValues.password || '비밀번호와 일치하지 않습니다.',
+    },
   },
 };
 
