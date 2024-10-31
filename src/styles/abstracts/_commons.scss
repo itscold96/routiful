@@ -1,0 +1,31 @@
+@use '/src/styles/abstracts/colors' as *;
+
+.itemContainer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+}
+
+.emojiWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  min-width: 64px;
+  width: 64px;
+  border-radius: 6px;
+}
+
+.itemName {
+  display: flex;
+  align-items: center;
+  border-bottom: 0.1px solid $gray700;
+  font-size: 18px;
+  font-weight: 500;
+  height: 64px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
