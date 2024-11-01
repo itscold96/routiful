@@ -1,11 +1,37 @@
 @use '/src/styles/abstracts/core' as *;
 
-.workoutContainer {
+.workoutListContainer {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 10px;
 
-  .title {
-    @include listTitle;
+  .workoutItem {
+    @extend .itemContainer;
+    background-color: transparent;
+
+    .emojiWrapper {
+      @extend .emojiWrapper;
+      background-color: $gray700;
+
+      .icon {
+        color: $red;
+      }
+    }
+
+    .workoutDetail {
+      @extend .itemNameContainer;
+      color: $white;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 5px;
+
+      .detail {
+        display: flex;
+        gap: 8px;
+        font-size: 15px;
+        color: $red;
+      }
+    }
   }
 }

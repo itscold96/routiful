@@ -2,9 +2,10 @@
 
 .itemContainer {
   display: flex;
-  gap: 12px;
+  gap: 15px;
   align-items: center;
   width: 100%;
+  padding: 0;
 }
 
 .emojiWrapper {
@@ -17,11 +18,11 @@
   border-radius: 6px;
 }
 
-.itemName {
+.itemNameContainer {
   display: flex;
   align-items: center;
   border-bottom: 0.1px solid $gray700;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   height: 64px;
   width: 100%;
