@@ -9,13 +9,11 @@ interface RoutineItemProps {
 
 export default function RoutineItem({ id, name }: RoutineItemProps) {
   return (
-    <>
-      <Link className={S.routineItem} to={`/routine/${id}/?name=${name}`}>
-        <div className={S.emojiWrapper}>
-          <ListVideo size={36} strokeWidth={1.8} />
-        </div>
-        <div className={S.name}>{name}</div>
-      </Link>
-    </>
+    <Link className={S.routineItem} to={`/routine/${id}/?name=${name}`}>
+      <div className={S.emojiWrapper}>
+        <ListVideo size={36} strokeWidth={1.8} />
+      </div>
+      <div className={S.name}>{name}</div>
+    </Link>
   );
 }

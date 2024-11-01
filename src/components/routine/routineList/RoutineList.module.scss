@@ -6,3 +6,10 @@
   gap: 12px;
   padding: 12px 0;
 }
+
+.modal {
+  background-color: $black;
+  border: 1px solid $gray700;
+  height: 200px;
+  width: 200px;
+}

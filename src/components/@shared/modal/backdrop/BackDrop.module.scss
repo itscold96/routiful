@@ -1,0 +1,12 @@
+@use '/src/styles/abstracts/core' as *;
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  width: 100dvw;
+
+  z-index: $backdropZIndex;
+  background-color: rgba(0, 0, 0, 0.3);
+}
