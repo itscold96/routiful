@@ -6,17 +6,3 @@
   gap: 12px;
   padding: 12px 0;
 }
-
-.itemContainer {
-  @extend .itemContainer;
-
-  .emojiWrapper {
-    @extend .emojiWrapper;
-    background-color: $gray700;
-    color: $red;
-  }
-
-  .name {
-    @extend .itemNameContainer;
-  }
-}

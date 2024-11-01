@@ -1,0 +1,15 @@
+@use '/src/styles/abstracts/core' as *;
+
+.routineItem {
+  @extend .itemContainer;
+
+  .emojiWrapper {
+    @extend .emojiWrapper;
+    background-color: $gray700;
+    color: $red;
+  }
+
+  .name {
+    @extend .itemNameContainer;
+  }
+}

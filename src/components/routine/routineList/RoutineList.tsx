@@ -1,7 +1,6 @@
 import S from './RoutineList.module.scss';
-import { ListVideo } from 'lucide-react';
 import { useRoutineList } from 'queries/useRoutineList';
-import { Link } from 'react-router-dom';
+import RoutineItem from './RoutineItem';
 
 export default function RoutineList() {
   const { data: routineList, isError } = useRoutineList();
@@ -9,14 +8,7 @@ export default function RoutineList() {
   return (
     <div className={S.routineList}>
       {(isError || routineList?.length === 0) && <div>만들어진 루틴이 없습니다.</div>}
-      {routineList?.map((routine) => (
-        <Link key={routine.id} className={S.itemContainer} to={`/routine/${routine.id}/?name=${routine.name}`}>
-          <div className={S.emojiWrapper}>
-            <ListVideo size={36} strokeWidth={1.8} />
-          </div>
-          <div className={S.name}>{routine.name}</div>
-        </Link>
-      ))}
+      {routineList?.map((routine) => <RoutineItem key={routine.id} id={routine.id} name={routine.name} />)}
     </div>
   );
 }
