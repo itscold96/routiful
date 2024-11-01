@@ -3,9 +3,10 @@
 .routineContainer {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 5px;
 
   .title {
     @include listTitle;
+    padding-bottom: 15px;
   }
 }
