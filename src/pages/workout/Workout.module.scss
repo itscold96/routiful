@@ -1,0 +1,42 @@
+@use '/src/styles/abstracts/core' as *;
+
+.workoutContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 12px 0;
+
+  .icon {
+    color: $red;
+  }
+
+  .titleContainer {
+    display: flex;
+    gap: 12px;
+
+    .title {
+      @include listTitle;
+    }
+  }
+
+  .buttonsContainer {
+    display: flex;
+    gap: 10px;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+
+      width: 100%;
+      padding: 15px 0;
+
+      background-color: $gray700;
+      color: $red;
+
+      border-radius: 8px;
+      font-size: 20px;
+    }
+  }
+}

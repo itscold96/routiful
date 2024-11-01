@@ -1,0 +1,11 @@
+@use '/src/styles/abstracts/core' as *;
+
+.workoutContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  .title {
+    @include listTitle;
+  }
+}
