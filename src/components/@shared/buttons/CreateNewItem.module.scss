@@ -1,0 +1,13 @@
+@use '/src/styles/abstracts/core' as *;
+
+.createNewItemButton {
+  @extend .itemContainer;
+  background-color: transparent;
+  color: $red;
+
+  font-size: 20px;
+
+  .emojiWrapper {
+    @extend .emojiWrapper;
+  }
+}
