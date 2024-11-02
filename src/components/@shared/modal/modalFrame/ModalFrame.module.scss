@@ -5,14 +5,37 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   z-index: $modalZIndex;
 
-  .fadeIn {
-    animation: $fadeIn;
-  }
+  .modalContent {
+    background-color: $black;
+    border: 1px solid $gray700;
+    border-radius: 8px;
+    padding: 20px;
 
-  .fadeOut {
-    animation: $fadeOut;
+    .modalTitleContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 25px;
+
+      .modalTitle {
+        font-size: 30px;
+        font-weight: 700;
+      }
+
+      .closeModalButton {
+        background-color: transparent;
+        color: $white;
+      }
+    }
+
+    &.fadeIn {
+      animation: $fadeIn;
+    }
+
+    &.fadeOut {
+      animation: $fadeOut;
+    }
   }
 }

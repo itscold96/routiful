@@ -56,27 +56,6 @@
   @include mobile {
     width: 350px;
   }
-
-  background-color: $black;
-  border: 1px solid $gray700;
-  border-radius: 8px;
-  padding: 20px;
-}
-
-.modalTitle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  h2 {
-    font-size: 30px;
-    font-weight: 700;
-  }
-
-  button {
-    background-color: transparent;
-    color: $white;
-  }
 }
 
 .submitButton {

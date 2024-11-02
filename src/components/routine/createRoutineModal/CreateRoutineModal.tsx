@@ -39,15 +39,9 @@ export default function CreateRoutineModal({ isOpen, onClose }: CreateRoutineMod
   };
 
   return (
-    <ModalFrame isOpen={isOpen} onClose={handleCloseModal}>
+    <ModalFrame title={'새로운 루틴 추가'} isOpen={isOpen} onClose={handleCloseModal}>
       <div className={S.modal}>
-        <div className={S.modalTitle}>
-          <h2>새로운 루틴 추가</h2>
-          <button onClick={handleCloseModal}>
-            <X size={30} strokeWidth={3} />
-          </button>
-        </div>
-        <form className={S.createItemForm} onSubmit={handleSubmit(handleFormSubmit)}>
+        <form className={S.createRoutineForm} onSubmit={handleSubmit(handleFormSubmit)}>
           <Input
             register={register.name}
             htmlFor={'name'}

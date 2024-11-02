@@ -3,7 +3,7 @@
 .modal {
   @extend .createItemModal;
 
-  .createItemForm {
+  .createWorkoutForm {
     display: flex;
     flex-direction: column;
     gap: 20px;
