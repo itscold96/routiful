@@ -1,0 +1,13 @@
+@use '/src/styles/abstracts/core' as *;
+
+.modal {
+  @extend .createItemModal;
+
+  .createItemForm {
+    @extend .createItemForm;
+  }
+
+  .submitButton {
+    @extend .submitButton;
+  }
+}

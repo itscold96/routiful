@@ -1,4 +1,5 @@
 @use '/src/styles/abstracts/colors' as *;
+@use '/src/styles/abstracts/mixins' as *;
 
 .itemContainer {
   display: flex;
@@ -29,4 +30,66 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.buttonPrimary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  padding: 15px 0;
+
+  border-radius: 8px;
+  font-size: 20px;
+}
+
+// createItemModal
+.createItemModal {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  width: 500px;
+
+  @include mobile {
+    width: 350px;
+  }
+
+  background-color: $black;
+  border: 1px solid $gray700;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.createItemForm {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.modalTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  button {
+    background-color: transparent;
+    color: $white;
+  }
+}
+
+.submitButton {
+  @extend .buttonPrimary;
+
+  font-size: 18px;
+  padding: 12px 0;
+  color: $white;
+  background-color: $red;
 }

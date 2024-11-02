@@ -24,19 +24,9 @@
     gap: 10px;
 
     a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-
-      width: 100%;
-      padding: 15px 0;
-
+      @extend .buttonPrimary;
       background-color: $gray700;
       color: $red;
-
-      border-radius: 8px;
-      font-size: 20px;
     }
   }
 }
