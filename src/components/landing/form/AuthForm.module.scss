@@ -7,6 +7,10 @@
 
   padding-top: 30px;
 
+  @include mobile {
+    padding-top: 0;
+  }
+
   button {
     height: 50px;
 

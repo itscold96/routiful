@@ -4,9 +4,11 @@
   font-size: 65px;
   line-height: 130%;
   font-weight: 700;
+  padding-top: 20px;
 
   @include mobile {
     font-size: 40px;
+    padding-top: 0;
   }
 
   .icon {
