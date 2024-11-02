@@ -9,6 +9,12 @@ export default function Workout() {
   const [searchParams] = useSearchParams();
   const name = searchParams.get('name');
 
+  if (!routineId) {
+    // url에 routineId 없이 접근한 것이라면 잘못된 접근이다.
+    // TODO: 404 페이지 컴포넌트 만들기
+    return <div>잘못된 접근입니다.</div>;
+  }
+
   return (
     <div className={S.workoutContainer}>
       <div className={S.titleContainer}>
