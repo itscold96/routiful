@@ -25,7 +25,7 @@ export default function Workout() {
       </div>
 
       <div className={S.buttonsContainer}>
-        <Link to={`/play/${routineId}/?name=${name}`}>
+        <Link to={`/play/${routineId}`}>
           <Play size={25} strokeWidth={2.2} className={S.icon} />
           시작
         </Link>
