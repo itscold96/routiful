@@ -1,12 +1,11 @@
 import { useValidForm } from 'hooks/useValidForm';
 import S from './CreateWorkoutModal.module.scss';
-import ModalFrame from 'components/@shared/modal/modalFrame/ModalFrame';
 import { ValidationConfig } from 'types/validation';
 import Input from 'components/@shared/input/Input';
 import { FieldValues } from 'react-hook-form';
-import { X } from 'lucide-react';
 import { VALID_OPTIONS } from 'constants/validOption';
 import { useInsertWorkout } from 'queries/useInsertWorkout';
+import Modal from 'components/@shared/overlay/modal/Modal';
 
 interface CreateWorkoutModalProps {
   routineId: string;
@@ -50,7 +49,7 @@ export default function CreateWorkoutModal({ routineId, isOpen, onClose }: Creat
   };
 
   return (
-    <ModalFrame title={'새로운 운동 추가'} isOpen={isOpen} onClose={handleCloseModal}>
+    <Modal title={'새로운 운동 추가'} isOpen={isOpen} onClose={handleCloseModal}>
       <div className={S.modal}>
         <form className={S.createWorkoutForm} onSubmit={handleSubmit(handleFormSubmit)}>
           <Input
@@ -79,6 +78,6 @@ export default function CreateWorkoutModal({ routineId, isOpen, onClose }: Creat
           <button className={S.submitButton}>추가</button>
         </form>
       </div>
-    </ModalFrame>
+    </Modal>
   );
 }

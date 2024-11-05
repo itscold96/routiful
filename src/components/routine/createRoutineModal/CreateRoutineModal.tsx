@@ -1,12 +1,11 @@
 import { useValidForm } from 'hooks/useValidForm';
 import S from './CreateRoutineModal.module.scss';
-import ModalFrame from 'components/@shared/modal/modalFrame/ModalFrame';
 import { ValidationConfig } from 'types/validation';
 import Input from 'components/@shared/input/Input';
 import { FieldValues } from 'react-hook-form';
-import { X } from 'lucide-react';
 import { useInsertRoutine } from 'queries/useInsertRoutine';
 import { VALID_OPTIONS } from 'constants/validOption';
+import Modal from 'components/@shared/overlay/modal/Modal';
 
 interface CreateRoutineModalProps {
   isOpen: boolean;
@@ -39,7 +38,7 @@ export default function CreateRoutineModal({ isOpen, onClose }: CreateRoutineMod
   };
 
   return (
-    <ModalFrame title={'새로운 루틴 추가'} isOpen={isOpen} onClose={handleCloseModal}>
+    <Modal title={'새로운 루틴 추가'} isOpen={isOpen} onClose={handleCloseModal}>
       <div className={S.modal}>
         <form className={S.createRoutineForm} onSubmit={handleSubmit(handleFormSubmit)}>
           <Input
@@ -52,6 +51,6 @@ export default function CreateRoutineModal({ isOpen, onClose }: CreateRoutineMod
           <button className={S.submitButton}>추가</button>
         </form>
       </div>
-    </ModalFrame>
+    </Modal>
   );
 }
