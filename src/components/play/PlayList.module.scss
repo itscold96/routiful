@@ -1,0 +1,63 @@
+@use '/src/styles/abstracts/core' as *;
+
+.playlist {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .titleContainer {
+    display: flex;
+    gap: 3px;
+
+    .name {
+      @include listTitle;
+    }
+
+    .goToBackButton {
+      color: $red;
+      cursor: pointer;
+    }
+  }
+
+  .progressContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .progressbarTextContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      .reps {
+        font-size: 30px;
+        font-weight: 500;
+      }
+
+      .sets {
+        font-size: 75px;
+        font-weight: 700;
+        color: $red;
+      }
+
+      @include mobile {
+        .reps {
+          font-size: 20px;
+        }
+
+        .sets {
+          font-size: 55px;
+        }
+      }
+    }
+  }
+
+  .completeButton {
+    background-color: $red;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 20px;
+  }
+}
