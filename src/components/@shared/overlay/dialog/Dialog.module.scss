@@ -1,0 +1,29 @@
+@use '/src/styles/abstracts/core' as *;
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+
+  .message {
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+  .buttonContainer {
+    display: flex;
+    gap: 25px;
+
+    button {
+      font-size: 18px;
+      font-weight: 600;
+      background-color: $red;
+      color: black;
+      padding: 12px 30px;
+      border-radius: 8px;
+    }
+  }
+}

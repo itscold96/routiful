@@ -5,24 +5,36 @@ import { buildStyles, CircularProgressbarWithChildren } from 'react-circular-pro
 import 'react-circular-progressbar/dist/styles.css';
 import S from './PlayList.module.scss';
 import { ChevronLeft } from 'lucide-react';
+import { useConfirm } from 'hooks/useConfirm';
+import { useAlert } from 'hooks/useAlert';
+import Dialog from 'components/@shared/overlay/dialog/Dialog';
 
 export default function PlayList({ routineId }: { routineId: string }) {
   const { data: workoutList } = useWorkoutList(routineId);
   const [playIndex, setPlayIndex] = useState(0);
   const [currentSets, setCurrentSets] = useState(1);
   const navigate = useNavigate();
+  const { confirm, isConfirmOpen, confirmMessage, onConfirmCancel, onConfirmOk } = useConfirm();
+  const { alert, alertMessage, isAlertOpen, onCloseAlert } = useAlert();
 
   const totalWorkoutCount = workoutList.length;
   const { name, sets: totalSets, reps } = workoutList[playIndex];
   const percentage = (currentSets / totalSets) * 100;
   const completeButtonText = (currentSets === totalSets ? '마지막 ' : currentSets) + '세트 완료!';
 
-  const handleCompleteSetClick = () => {
+  const handleGoToBackClick = async () => {
+    const isConfirm = await confirm('루틴을 종료하시겠습니까?');
+    if (isConfirm) {
+      navigate('/routine');
+    }
+  };
+
+  const handleCompleteSetClick = async () => {
     if (currentSets + 1 > totalSets) {
       // 현재 세트 수 + 1 이 현재 운동의 세트 수보다 크다면
       if (playIndex + 1 === totalWorkoutCount) {
         // 다음 운동이 없다면 루틴 종료하고 루틴 페이지로 이동
-        alert('루틴 종료'); // TODO: alert 컴포넌트 제작
+        await alert('루틴을 완료했습니다!');
         navigate('/routine');
         return;
       }
@@ -35,17 +47,14 @@ export default function PlayList({ routineId }: { routineId: string }) {
     }
   };
 
-  const handleGoToBackClick = () => {
-    const isConfirm = confirm('루틴을 종료하시겠어요?'); // TODO: confirm 컴포넌트 제작
-    if (isConfirm) {
-      navigate('/routine');
-    }
-  };
-
   return (
     <div className={S.playlist}>
       <div className={S.titleContainer}>
         <ChevronLeft onClick={handleGoToBackClick} size={38} strokeWidth={2} className={S.goToBackButton} />
+        <Dialog isDialogOpen={isConfirmOpen} message={confirmMessage} type={'warn'}>
+          <button onClick={onConfirmOk}>종료</button>
+          <button onClick={onConfirmCancel}>취소</button>
+        </Dialog>
         <p className={S.name}>{name}</p>
       </div>
       <div className={S.progressContainer}>
@@ -68,6 +77,9 @@ export default function PlayList({ routineId }: { routineId: string }) {
       <button className={S.completeButton} onClick={handleCompleteSetClick}>
         {completeButtonText}
       </button>
+      <Dialog isDialogOpen={isAlertOpen} message={alertMessage} type={'success'}>
+        <button onClick={onCloseAlert}>확인</button>
+      </Dialog>
     </div>
   );
 }
