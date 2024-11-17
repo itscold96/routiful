@@ -5,6 +5,7 @@ import { useRemoveWorkout } from 'queries/useRemoveWorkout';
 import { useToggle } from 'hooks/useToggle';
 import EditWorkoutModal from '../workoutModal/edit/EditWorkoutModal';
 import classNames from 'classnames';
+import { MouseEvent } from 'react';
 
 interface WorkoutItemProps extends WorkoutWithoutRelatedId {
   isEditing: boolean;
@@ -20,7 +21,8 @@ export default function WorkoutItem({ id, name, reps, sets, order, isEditing }: 
     }
   };
 
-  const handleRemoveClick = () => {
+  const handleRemoveClick = (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
     mutate(id);
   };
 
