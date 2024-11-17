@@ -2,11 +2,13 @@ import S from './Workout.module.scss';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { ChevronLeft, Cog, Play } from 'lucide-react';
 import WorkoutContent from 'components/workout/workoutContent/WorkoutContent';
+import { useToggle } from 'hooks/useToggle';
 
 export default function Workout() {
   const { routineId } = useParams();
   const [searchParams] = useSearchParams();
   const name = searchParams.get('name');
+  const { toggleValue: isEditing, toggleDispatch } = useToggle();
 
   if (!routineId) {
     // url에 routineId 없이 접근한 것이라면 잘못된 접근이다.
@@ -24,17 +26,17 @@ export default function Workout() {
       </div>
 
       <div className={S.buttonsContainer}>
-        <Link to={`/play/${routineId}`}>
+        <Link className={S.button} to={`/play/${routineId}`}>
           <Play size={25} strokeWidth={2.2} className={S.icon} />
           시작
         </Link>
-        <Link to={`/edit/${routineId}/?name=${name}`}>
+        <button className={S.button} onClick={() => toggleDispatch({ type: 'switch' })}>
           <Cog size={25} strokeWidth={2.2} className={S.icon} />
           편집
-        </Link>
+        </button>
       </div>
 
-      <WorkoutContent routineId={routineId} />
+      <WorkoutContent routineId={routineId} isEditing={isEditing} />
     </div>
   );
 }

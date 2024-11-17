@@ -5,7 +5,12 @@ import CreateNewItem from 'components/@shared/buttons/CreateNewItem';
 import WorkoutList from './WorkoutList';
 import { Suspense } from 'react';
 
-export default function WorkoutContent({ routineId }: { routineId: string }) {
+interface WorkoutContentProps {
+  routineId: string;
+  isEditing: boolean;
+}
+
+export default function WorkoutContent({ routineId, isEditing }: WorkoutContentProps) {
   const { toggleValue: isModalOpen, toggleDispatch } = useToggle();
 
   return (
@@ -14,7 +19,7 @@ export default function WorkoutContent({ routineId }: { routineId: string }) {
       <CreateWorkoutModal routineId={routineId} isOpen={isModalOpen} onClose={() => toggleDispatch({ type: 'off' })} />
 
       <Suspense fallback={<div>Loading...</div>}>
-        <WorkoutList routineId={routineId} />
+        <WorkoutList routineId={routineId} isEditing={isEditing} />
       </Suspense>
     </div>
   );

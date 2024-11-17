@@ -4,8 +4,12 @@ import WorkoutItem from './WorkoutItem';
 import { Reorder } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useReorderWorkout } from 'queries/useReorderWorkout';
+interface WorkoutListProps {
+  routineId: string;
+  isEditing: boolean;
+}
 
-export default function WorkoutList({ routineId }: { routineId: string }) {
+export default function WorkoutList({ routineId, isEditing }: WorkoutListProps) {
   // 실제 서버에 요청하여 받아오는 data
   const { data, isError } = useWorkoutList(routineId);
   // 서버 요청이 아닌 클라이언트 측에서 리오더 되는 것만 보여주기 위한 workoutList
@@ -30,7 +34,7 @@ export default function WorkoutList({ routineId }: { routineId: string }) {
     <section ref={containerRef} className={S.workoutListContainer}>
       {(isError || workoutList?.length === 0) && <div>추가된 운동이 없습니다.</div>}
       <Reorder.Group className={S.workoutList} axis="y" values={workoutList} onReorder={setWorkoutList}>
-        {workoutList?.map((workout) => (
+        {workoutList?.map((workout, index) => (
           <Reorder.Item
             key={workout.id}
             value={workout}
@@ -38,13 +42,15 @@ export default function WorkoutList({ routineId }: { routineId: string }) {
             onDragEnd={handleDragEnd}
             dragConstraints={containerRef}
             dragElastic={0.1}
+            dragListener={!isEditing}
           >
             <WorkoutItem
               id={workout.id}
               name={workout.name}
               reps={workout.reps}
               sets={workout.sets}
-              order={workout.order}
+              order={index}
+              isEditing={isEditing}
             />
           </Reorder.Item>
         ))}
