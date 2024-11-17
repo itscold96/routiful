@@ -38,7 +38,7 @@ export default function CreateWorkoutModal({ routineId, isOpen, onClose }: Creat
   const handleFormSubmit = async (formData: FieldValues) => {
     if (formData.name && formData.sets && formData.reps) {
       const { name, sets, reps } = formData;
-      mutate({ workoutName: name, sets, reps, routineId });
+      mutate({ name, sets, reps, related_routine_id: routineId });
       onClose();
     }
   };

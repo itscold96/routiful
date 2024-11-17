@@ -1,18 +1,12 @@
+import { InsertWorkoutParams } from 'types/workout';
 import { supabase } from 'utils/supabaseClient';
 
-export interface insertWorkoutParams {
-  routineId: string;
-  workoutName: string;
-  sets: number;
-  reps: number;
-}
-
-export const insertWorkout = async ({ routineId, workoutName, reps, sets }: insertWorkoutParams) => {
+export const insertWorkout = async ({ related_routine_id, name, reps, sets }: InsertWorkoutParams) => {
   // 루틴 내 운동 개수 조회
   const { data: countData, error: countError } = await supabase
     .from('workout_table')
     .select('id', { count: 'exact' }) // 총 개수 조회
-    .eq('related_routine_id', routineId);
+    .eq('related_routine_id', related_routine_id);
 
   if (countError) {
     throw new Error('운동 개수 확인 실패');
@@ -25,10 +19,10 @@ export const insertWorkout = async ({ routineId, workoutName, reps, sets }: inse
     .from('workout_table')
     .insert([
       {
-        name: workoutName,
+        name: name,
         sets,
         reps,
-        related_routine_id: routineId,
+        related_routine_id: related_routine_id,
         order: newOrder,
       },
     ])

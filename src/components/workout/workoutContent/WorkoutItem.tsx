@@ -12,7 +12,8 @@ export default function WorkoutItem({ id, name, reps, sets, order }: WorkoutItem
   return (
     <button data-id={id} className={S.workoutItem}>
       <div className={S.emojiWrapper}>
-        <p>{order}</p>
+        {/* order는 0부터 시작 */}
+        <p>{order + 1}</p>
       </div>
       <div className={S.workoutDetail}>
         <p>{name}</p>
