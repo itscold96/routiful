@@ -1,4 +1,8 @@
 .workoutListContainer {
+  height: 100%;
+}
+
+.workoutList {
   display: flex;
   flex-direction: column;
   gap: 10px;

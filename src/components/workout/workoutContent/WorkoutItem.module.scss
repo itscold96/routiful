@@ -7,6 +7,9 @@
   .emojiWrapper {
     @extend .emojiWrapper;
     background-color: $gray700;
+    font-size: 25px;
+    font-weight: 700;
+    color: $red;
 
     .icon {
       color: $red;

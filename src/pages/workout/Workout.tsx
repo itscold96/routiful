@@ -1,8 +1,7 @@
-import WorkoutList from 'components/workout/workoutList/WorkoutList';
 import S from './Workout.module.scss';
-import { Suspense } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { ChevronLeft, Cog, Play } from 'lucide-react';
+import WorkoutContent from 'components/workout/workoutContent/WorkoutContent';
 
 export default function Workout() {
   const { routineId } = useParams();
@@ -35,9 +34,7 @@ export default function Workout() {
         </Link>
       </div>
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <WorkoutList routineId={routineId} />
-      </Suspense>
+      <WorkoutContent routineId={routineId} />
     </div>
   );
 }

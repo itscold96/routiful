@@ -1,18 +1,18 @@
 import S from './WorkoutItem.module.scss';
-import { Dumbbell } from 'lucide-react';
 
 interface WorkoutItemProps {
   id: string;
   name: string;
   sets: number;
   reps: number;
+  order: number;
 }
 
-export default function WorkoutItem({ id, name, reps, sets }: WorkoutItemProps) {
+export default function WorkoutItem({ id, name, reps, sets, order }: WorkoutItemProps) {
   return (
     <button data-id={id} className={S.workoutItem}>
       <div className={S.emojiWrapper}>
-        <Dumbbell className={S.icon} size={28} strokeWidth={1.8} />
+        <p>{order}</p>
       </div>
       <div className={S.workoutDetail}>
         <p>{name}</p>
