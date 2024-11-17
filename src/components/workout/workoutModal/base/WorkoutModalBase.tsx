@@ -1,16 +1,25 @@
 import { useValidForm } from 'hooks/useValidForm';
-import S from './CreateWorkoutModal.module.scss';
+import S from './WorkoutModalBase.module.scss';
 import { ValidationConfig } from 'types/validation';
 import Input from 'components/@shared/input/Input';
 import { FieldValues } from 'react-hook-form';
 import { VALID_OPTIONS } from 'constants/validOption';
-import { useInsertWorkout } from 'queries/useInsertWorkout';
 import Modal from 'components/@shared/overlay/modal/Modal';
+import { useEffect } from 'react';
 
-interface CreateWorkoutModalProps {
-  routineId: string;
+interface InitialValues {
+  name: string;
+  sets: number;
+  reps: number;
+}
+
+interface WorkoutModalProps {
+  modalTitle: string;
   isOpen: boolean;
   onClose: () => void;
+  onSubmit: (formData: FieldValues) => Promise<void>;
+  buttonText: string;
+  initialValues?: InitialValues;
 }
 
 const validConfig: ValidationConfig = {
@@ -31,27 +40,42 @@ const validConfig: ValidationConfig = {
   },
 };
 
-export default function CreateWorkoutModal({ routineId, isOpen, onClose }: CreateWorkoutModalProps) {
+export default function WorkoutModalBase({
+  modalTitle,
+  isOpen,
+  onClose,
+  onSubmit,
+  buttonText,
+  initialValues,
+}: WorkoutModalProps) {
   const { register, handleSubmit, errors, reset } = useValidForm({ validationConfig: validConfig, mode: 'onSubmit' });
-  const { mutate } = useInsertWorkout();
-
-  const handleFormSubmit = async (formData: FieldValues) => {
-    if (formData.name && formData.sets && formData.reps) {
-      const { name, sets, reps } = formData;
-      mutate({ name, sets, reps, related_routine_id: routineId });
-      onClose();
-    }
-  };
 
   const handleCloseModal = () => {
     onClose();
     reset(); // 모달 닫을 때 입력값 초기화
   };
 
+  const handleFormSubmit = (formData: FieldValues) => {
+    onSubmit(formData);
+    handleCloseModal();
+  };
+
+  useEffect(() => {
+    // 초기값이 있을 경우 해당 값으로 초기화
+    if (initialValues) {
+      const { name, reps, sets } = initialValues;
+      reset({
+        name,
+        reps,
+        sets,
+      });
+    }
+  }, []);
+
   return (
-    <Modal title={'새로운 운동 추가'} isOpen={isOpen} onClose={handleCloseModal}>
+    <Modal title={modalTitle} isOpen={isOpen} onClose={handleCloseModal}>
       <div className={S.modal}>
-        <form className={S.createWorkoutForm} onSubmit={handleSubmit(handleFormSubmit)}>
+        <form className={S.workoutForm} onSubmit={handleSubmit(handleFormSubmit)}>
           <Input
             register={register.name}
             htmlFor={'name'}
@@ -75,7 +99,7 @@ export default function CreateWorkoutModal({ routineId, isOpen, onClose }: Creat
             error={errors.reps}
             message={errors.reps?.message}
           />
-          <button className={S.submitButton}>추가</button>
+          <button className={S.submitButton}>{buttonText}</button>
         </form>
       </div>
     </Modal>

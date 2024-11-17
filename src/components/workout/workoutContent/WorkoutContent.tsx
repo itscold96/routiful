@@ -1,9 +1,10 @@
 import S from './WorkoutContent.module.scss';
-import CreateWorkoutModal from '../createWorkoutModal/CreateWorkoutModal';
+
 import { useToggle } from 'hooks/useToggle';
 import CreateNewItem from 'components/@shared/buttons/CreateNewItem';
 import WorkoutList from './WorkoutList';
 import { Suspense } from 'react';
+import CreateWorkoutModal from '../workoutModal/create/CreateWorkoutModal';
 
 interface WorkoutContentProps {
   routineId: string;

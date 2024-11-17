@@ -2,12 +2,12 @@
 
 .modal {
   @extend .createItemModal;
+}
 
-  .createWorkoutForm {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
+.workoutForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
   .submitButton {
     @extend .submitButton;

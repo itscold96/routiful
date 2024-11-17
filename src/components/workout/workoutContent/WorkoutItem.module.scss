@@ -11,8 +11,8 @@
     font-weight: 700;
     color: $red;
 
-    .icon {
-      color: $red;
+    &.shake {
+      animation: $shakeTl;
     }
   }
 

@@ -3,6 +3,7 @@ import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { ChevronLeft, Cog, Play } from 'lucide-react';
 import WorkoutContent from 'components/workout/workoutContent/WorkoutContent';
 import { useToggle } from 'hooks/useToggle';
+import classNames from 'classnames';
 
 export default function Workout() {
   const { routineId } = useParams();
@@ -27,12 +28,12 @@ export default function Workout() {
 
       <div className={S.buttonsContainer}>
         <Link className={S.button} to={`/play/${routineId}`}>
-          <Play size={25} strokeWidth={2.2} className={S.icon} />
+          <Play size={25} strokeWidth={3} className={S.icon} />
           시작
         </Link>
         <button className={S.button} onClick={() => toggleDispatch({ type: 'switch' })}>
-          <Cog size={25} strokeWidth={2.2} className={S.icon} />
-          편집
+          <Cog size={25} strokeWidth={2.2} className={classNames(S.icon, { [S.rotate]: isEditing })} />
+          {isEditing ? '편집 완료' : '편집'}
         </button>
       </div>
 

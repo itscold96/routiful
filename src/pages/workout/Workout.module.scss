@@ -9,6 +9,10 @@
 
   .icon {
     color: $red;
+
+    &.rotate {
+      animation: $rotateCenter;
+    }
   }
 
   .titleContainer {
