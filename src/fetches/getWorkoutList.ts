@@ -5,7 +5,7 @@ export const getWorkoutList = async (routineId: string | undefined) => {
     return [];
   }
 
-  const { data } = await supabase.from('workout_table').select('*').eq('related_routine_id', routineId);
+  const { data } = await supabase.from('workout_table').select('*').eq('related_routine_id', routineId).order('order');
 
   if (!data) {
     return [];

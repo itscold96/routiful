@@ -25,6 +25,7 @@ export type Database = {
         Row: {
           id: string;
           name: string;
+          order: number;
           related_routine_id: string;
           reps: number;
           sets: number;
@@ -32,6 +33,7 @@ export type Database = {
         Insert: {
           id?: string;
           name?: string;
+          order?: number;
           related_routine_id?: string;
           reps?: number;
           sets?: number;
@@ -39,6 +41,7 @@ export type Database = {
         Update: {
           id?: string;
           name?: string;
+          order?: number;
           related_routine_id?: string;
           reps?: number;
           sets?: number;
