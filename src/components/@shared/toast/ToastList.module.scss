@@ -1,0 +1,15 @@
+@use '/src/styles/abstracts/core' as *;
+
+.toastContainer {
+  position: fixed;
+  bottom: 15%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: $toastZIndex;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}

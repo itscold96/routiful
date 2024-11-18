@@ -1,0 +1,51 @@
+@use '/src/styles/abstracts/core' as *;
+
+.toast {
+  padding: 12px 15px;
+  box-shadow: 0 4px 20px 0 #0000000d;
+  border-radius: 15px;
+  max-width: 90dvw;
+  animation: $fadeIn;
+
+  font-size: 17px;
+  font-weight: 500;
+
+  &.success {
+    border: 1px solid $successGreen200;
+    background-color: $successGreen100;
+    color: $successGreen200;
+  }
+
+  &.warn {
+    border: 1px solid $warnYellow200;
+    background-color: $white;
+    color: $warnYellow200;
+
+    .yellow {
+      filter: $yellowFilter;
+    }
+  }
+
+  &.error {
+    border: 1px solid $errorRed200;
+    background-color: $errorRed100;
+    color: $errorRed200;
+  }
+
+  &.exit {
+    animation: $fadeOutUp;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 6px;
+
+    .message {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

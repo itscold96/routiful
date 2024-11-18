@@ -17,7 +17,7 @@ export default function ModalFrame({ isOpen, onClose, children, backdropClassNam
   return (
     <>
       {!isHidden && (
-        <Portal>
+        <Portal elementId={'modal'}>
           <BackDrop onClose={onClose} className={backdropClassName} />
           <div className={S.modalFrame}>
             <div className={classNames(S.modalContent, isOpen ? S.fadeIn : S.fadeOut)}>{children}</div>

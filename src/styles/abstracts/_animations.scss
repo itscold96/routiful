@@ -1,6 +1,7 @@
 @use '/src/styles/abstracts/keyframes' as *;
 
 $fadeIn: fadeIn 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-$fadeOut: fadeOut 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+$fadeOut: fadeOut 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+$fadeOutUp: fadeOutUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 $rotateCenter: rotateCenter 1.2s ease-in-out infinite both;
 $shakeTl: shakeTl 1.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
