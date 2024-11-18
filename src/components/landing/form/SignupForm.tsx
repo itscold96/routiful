@@ -5,6 +5,7 @@ import { signup } from 'fetches/signup';
 import { useValidForm } from 'hooks/useValidForm';
 import { FieldValues } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { useToastAction } from 'stores/toast/action/useToastAction';
 import { ValidationConfig } from 'types/validation';
 
 const validConfig: ValidationConfig = {
@@ -27,6 +28,7 @@ const validConfig: ValidationConfig = {
 
 export default function SignupForm() {
   const { register, errors, handleSubmit, reset } = useValidForm({ validationConfig: validConfig });
+  const { addToast } = useToastAction();
   const navigate = useNavigate();
 
   const handleFormSubmit = async (formData: FieldValues) => {
@@ -38,14 +40,15 @@ export default function SignupForm() {
       // try catch로 에러가 잡히지 않음
       if (error) {
         if (error.status === 422) {
-          alert('이미 가입된 이메일입니다.');
+          addToast({ type: 'error', message: '이미 가입된 이메일입니다.' });
         } else {
-          alert('회원가입에 실패하였습니다.');
+          addToast({ type: 'error', message: '회원가입에 실패하였습니다.' });
         }
         reset();
         return;
       }
 
+      addToast({ type: 'error', message: '회원가입 성공!' });
       navigate('/routine');
     }
   };

@@ -8,6 +8,7 @@ import { ChevronLeft } from 'lucide-react';
 import { useConfirm } from 'hooks/useConfirm';
 import { useAlert } from 'hooks/useAlert';
 import Dialog from 'components/@shared/overlay/dialog/Dialog';
+import { useToastAction } from 'stores/toast/action/useToastAction';
 
 export default function PlayList({ routineId }: { routineId: string }) {
   const { data: workoutList } = useWorkoutList(routineId);
@@ -16,6 +17,7 @@ export default function PlayList({ routineId }: { routineId: string }) {
   const navigate = useNavigate();
   const { confirm, isConfirmOpen, confirmMessage, onConfirmCancel, onConfirmOk } = useConfirm();
   const { alert, alertMessage, isAlertOpen, onCloseAlert } = useAlert();
+  const { addToast } = useToastAction();
 
   const totalWorkoutCount = workoutList.length;
   const { name, sets: totalSets, reps } = workoutList[playIndex];
@@ -26,6 +28,7 @@ export default function PlayList({ routineId }: { routineId: string }) {
     const isConfirm = await confirm('루틴을 종료하시겠습니까?');
     if (isConfirm) {
       navigate('/routine');
+      addToast({ type: 'warn', message: '다음은 꼭 해낼 거에요!' });
     }
   };
 
@@ -36,6 +39,7 @@ export default function PlayList({ routineId }: { routineId: string }) {
         // 다음 운동이 없다면 루틴 종료하고 루틴 페이지로 이동
         await alert('루틴을 완료했습니다!');
         navigate('/routine');
+        addToast({ type: 'success', message: '오늘도 루틴 성공!' });
         return;
       }
       // 다음 운동으로 이동 및 세트 수 1로 초기화

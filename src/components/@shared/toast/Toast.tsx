@@ -45,7 +45,9 @@ export default function Toast({ id, type, message }: ToastProps) {
 }
 
 const ToastIcon: Record<ToastTypes, ReactNode> = {
-  success: <img src={'images/icons/icon-success.svg'} alt="성공 메시지 아이콘" height={25} width={25} />,
-  warn: <img src={'images/icons/icon-warn.svg'} alt="경고 메시지 아이콘" height={25} width={25} className={S.yellow} />,
-  error: <img src={'images/icons/icon-error.svg'} alt="실패 메시지 아이콘" height={25} width={25} />,
+  success: <img src={'/images/icons/icon-success.svg'} alt="성공 메시지 아이콘" height={25} width={25} />,
+  warn: (
+    <img src={'/images/icons/icon-warn.svg'} alt="경고 메시지 아이콘" height={25} width={25} className={S.yellow} />
+  ),
+  error: <img src={'/images/icons/icon-error.svg'} alt="실패 메시지 아이콘" height={25} width={25} />,
 };

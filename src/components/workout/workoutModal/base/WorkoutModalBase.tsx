@@ -70,7 +70,7 @@ export default function WorkoutModalBase({
         sets,
       });
     }
-  }, []);
+  }, [initialValues]);
 
   return (
     <Modal title={modalTitle} isOpen={isOpen} onClose={handleCloseModal}>

@@ -6,6 +6,7 @@ import { FieldValues } from 'react-hook-form';
 import { useInsertRoutine } from 'queries/useInsertRoutine';
 import { VALID_OPTIONS } from 'constants/validOption';
 import Modal from 'components/@shared/overlay/modal/Modal';
+import { useToastAction } from 'stores/toast/action/useToastAction';
 
 interface CreateRoutineModalProps {
   isOpen: boolean;
@@ -15,30 +16,31 @@ interface CreateRoutineModalProps {
 const validConfig: ValidationConfig = {
   name: {
     required: '필수 입력값이에요..',
-    // TODO: 말줄임 테스트 해보기
     maxLength: VALID_OPTIONS.maxLength20,
   },
 };
 
 export default function CreateRoutineModal({ isOpen, onClose }: CreateRoutineModalProps) {
   const { register, handleSubmit, errors, reset } = useValidForm({ validationConfig: validConfig, mode: 'onSubmit' });
+  const { addToast } = useToastAction();
   const { mutate } = useInsertRoutine();
+
+  const closeModal = () => {
+    onClose();
+    reset(); // 모달 닫을 때 입력값 초기화
+  };
 
   const handleFormSubmit = async (formData: FieldValues) => {
     if (formData.name) {
       const { name } = formData;
       mutate(name);
-      onClose();
+      closeModal();
+      addToast({ type: 'success', message: '루틴 생성 완료!' });
     }
   };
 
-  const handleCloseModal = () => {
-    onClose();
-    reset(); // 모달 닫을 때 입력값 초기화
-  };
-
   return (
-    <Modal title={'새로운 루틴 추가'} isOpen={isOpen} onClose={handleCloseModal}>
+    <Modal title={'새로운 루틴 추가'} isOpen={isOpen} onClose={closeModal}>
       <div className={S.modal}>
         <form className={S.createRoutineForm} onSubmit={handleSubmit(handleFormSubmit)}>
           <Input

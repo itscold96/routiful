@@ -4,12 +4,23 @@ import { ChevronLeft, Cog, Play } from 'lucide-react';
 import WorkoutContent from 'components/workout/workoutContent/WorkoutContent';
 import { useToggle } from 'hooks/useToggle';
 import classNames from 'classnames';
+import { useToastAction } from 'stores/toast/action/useToastAction';
 
 export default function Workout() {
   const { routineId } = useParams();
   const [searchParams] = useSearchParams();
   const name = searchParams.get('name');
   const { toggleValue: isEditing, toggleDispatch } = useToggle();
+  const { addToast } = useToastAction();
+
+  const handleEditToggle = () => {
+    if (isEditing) {
+      addToast({ type: 'success', message: '편집 완료!' });
+    } else {
+      addToast({ type: 'success', message: '수정과 삭제가 가능해요!' });
+    }
+    toggleDispatch({ type: 'switch' });
+  };
 
   if (!routineId) {
     // url에 routineId 없이 접근한 것이라면 잘못된 접근이다.
@@ -31,7 +42,7 @@ export default function Workout() {
           <Play size={25} strokeWidth={3} className={S.icon} />
           시작
         </Link>
-        <button className={S.button} onClick={() => toggleDispatch({ type: 'switch' })}>
+        <button className={S.button} onClick={handleEditToggle}>
           <Cog size={25} strokeWidth={2.2} className={classNames(S.icon, { [S.rotate]: isEditing })} />
           {isEditing ? '편집 완료' : '편집'}
         </button>

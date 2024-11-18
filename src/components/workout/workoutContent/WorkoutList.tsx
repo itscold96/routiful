@@ -24,8 +24,9 @@ export default function WorkoutList({ routineId, isEditing }: WorkoutListProps) 
   };
 
   useEffect(() => {
-    // 리오더 되는 효과가 아닌, 실제 서버측 데이터가 업데이트 될 경우에
-    // 화면에서 보여주는 index 번호가 바뀌어야 하므로 데이터 업데이트
+    // 리오더를 위해 서버 데이터와 별도로 클라이언트 데이터를 관리해야 한다.
+    // 실제 서버측 데이터가 업데이트 될 경우에,
+    // 화면에서 보여주는 리스트가 바뀌어야 하므로 클라이언트 데이터 업데이트가 필요함.
     // 해당 로직은 초기 렌더링과 서버 데이터 변경 시에만 실행됨
     setWorkoutList(data);
   }, [data]);

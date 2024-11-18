@@ -15,7 +15,7 @@ export default function Modal({ title, isOpen, onClose, children, backdropClassN
   return (
     <ModalFrame isOpen={isOpen} onClose={onClose} backdropClassName={backdropClassName}>
       <div className={S.modalTitleContainer}>
-        <h2 className={S.modalTitle}>{title}</h2>
+        <p className={S.modalTitle}>{title}</p>
         <button className={S.closeModalButton} onClick={onClose}>
           <X size={30} strokeWidth={3} />
         </button>
