@@ -1,0 +1,12 @@
+@use '/src/styles/abstracts/core' as *;
+
+.buttonContainer {
+  display: flex;
+  gap: 10px;
+
+  .button {
+    @extend .buttonPrimary;
+    background-color: $gray700;
+    color: $red;
+  }
+}
