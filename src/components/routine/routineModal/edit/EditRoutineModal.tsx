@@ -24,7 +24,7 @@ export default function EditRoutineModal({ id, name, isOpen, onClose }: EditRout
 
   return (
     <RoutineModalBase
-      modalTitle={'루틴 이름 변경'}
+      modalTitle={'루틴 편집'}
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleFormSubmit}
