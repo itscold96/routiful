@@ -7,7 +7,7 @@
   user-select: none; /* 텍스트 선택 방지 */
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE */
-  touch-action: manipulation; /* 터치 동작 제한 */
+  // touch-action: manipulation; /* 터치 동작 제한 */
 
   .emojiWrapper {
     @extend .emojiWrapper;
