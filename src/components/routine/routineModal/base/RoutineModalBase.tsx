@@ -6,6 +6,7 @@ import { FieldValues } from 'react-hook-form';
 import { VALID_OPTIONS } from 'constants/validOption';
 import Modal from 'components/@shared/overlay/modal/Modal';
 import { useEffect } from 'react';
+import classNames from 'classnames';
 
 interface RoutineModalBaseProps {
   modalTitle: string;
@@ -14,6 +15,8 @@ interface RoutineModalBaseProps {
   onSubmit: (formData: FieldValues) => Promise<void>;
   buttonText: string;
   routineName?: string;
+  editMode?: boolean;
+  onRemoveClick?: () => void;
 }
 
 const validConfig: ValidationConfig = {
@@ -30,6 +33,8 @@ export default function RoutineModalBase({
   onSubmit,
   buttonText,
   routineName,
+  editMode,
+  onRemoveClick,
 }: RoutineModalBaseProps) {
   const { register, handleSubmit, errors, reset } = useValidForm({ validationConfig: validConfig, mode: 'onSubmit' });
 
@@ -41,6 +46,15 @@ export default function RoutineModalBase({
   const handleFormSubmit = (formData: FieldValues) => {
     onSubmit(formData);
     handleCloseModal();
+    console.log('안됨?');
+  };
+
+  const handleRemoveClick = () => {
+    if (onRemoveClick) {
+      onRemoveClick();
+      onClose();
+      reset(); // 모달 닫을 때 입력값 초기화
+    }
   };
 
   useEffect(() => {
@@ -63,7 +77,16 @@ export default function RoutineModalBase({
             error={errors.name}
             message={errors.name?.message}
           />
-          <button className={S.submitButton}>{buttonText}</button>
+          <div className={S.buttonContainer}>
+            {editMode && (
+              <button type={'button'} onClick={handleRemoveClick} className={classNames(S.submitButton, S.delete)}>
+                {'삭제'}
+              </button>
+            )}
+            <button type={'submit'} className={S.submitButton}>
+              {buttonText}
+            </button>
+          </div>
         </form>
       </div>
     </Modal>

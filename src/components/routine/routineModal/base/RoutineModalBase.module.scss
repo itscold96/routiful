@@ -9,7 +9,16 @@
     gap: 40px;
   }
 
-  .submitButton {
-    @extend .submitButton;
+  .buttonContainer {
+    display: flex;
+    gap: 10px;
+
+    .submitButton {
+      @extend .submitButton;
+
+      &.delete {
+        background-color: $gray700;
+      }
+    }
   }
 }

@@ -36,7 +36,13 @@ export default function RoutineItem({ id, name }: RoutineItemProps) {
           </button>
         </div>
       </button>
-      <EditRoutineModal id={id} isOpen={isModalOpen} name={name} onClose={() => toggleDispatch({ type: 'off' })} />
+      <EditRoutineModal
+        id={id}
+        isOpen={isModalOpen}
+        name={name}
+        onClose={() => toggleDispatch({ type: 'off' })}
+        editMode
+      />
     </>
   );
 }
