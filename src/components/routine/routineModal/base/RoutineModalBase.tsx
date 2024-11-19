@@ -46,7 +46,6 @@ export default function RoutineModalBase({
   const handleFormSubmit = (formData: FieldValues) => {
     onSubmit(formData);
     handleCloseModal();
-    console.log('안됨?');
   };
 
   const handleRemoveClick = () => {

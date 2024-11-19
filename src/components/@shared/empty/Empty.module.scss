@@ -1,0 +1,17 @@
+@use '/src/styles/abstracts/core' as *;
+
+.emptyContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  height: 70%;
+  width: 100%;
+
+  .text {
+    font-size: 20px;
+    font-weight: 600;
+    color: $red;
+  }
+}

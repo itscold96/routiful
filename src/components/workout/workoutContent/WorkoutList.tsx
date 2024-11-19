@@ -4,6 +4,7 @@ import WorkoutItem from './WorkoutItem';
 import { Reorder } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { useReorderWorkout } from 'queries/useReorderWorkout';
+import Empty from 'components/@shared/empty/Empty';
 interface WorkoutListProps {
   routineId: string;
   isEditing: boolean;
@@ -33,7 +34,7 @@ export default function WorkoutList({ routineId, isEditing }: WorkoutListProps) 
 
   return (
     <section ref={containerRef} className={S.workoutListContainer}>
-      {(isError || workoutList?.length === 0) && <div>추가된 운동이 없습니다.</div>}
+      {(isError || workoutList?.length === 0) && <Empty text={'추가된 운동이 없네요..'} />}
       <Reorder.Group className={S.workoutList} axis="y" values={workoutList} onReorder={setWorkoutList}>
         {workoutList?.map((workout, index) => (
           <Reorder.Item
