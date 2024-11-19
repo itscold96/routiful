@@ -3,7 +3,7 @@ import { useRoutineList } from 'queries/useRoutineList';
 import RoutineItem from './RoutineItem';
 import CreateNewItem from 'components/@shared/buttons/CreateNewItem';
 import { useToggle } from 'hooks/useToggle';
-import CreateRoutineModal from '../createRoutineModal/CreateRoutineModal';
+import CreateRoutineModal from '../routineModal/create/CreateRoutineModal';
 
 export default function RoutineList() {
   const { data: routineList, isError } = useRoutineList();

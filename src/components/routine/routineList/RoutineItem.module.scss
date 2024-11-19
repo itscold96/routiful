@@ -2,6 +2,9 @@
 
 .routineItem {
   @extend .itemContainer;
+  background-color: transparent;
+  color: $white;
+  touch-action: none;
 
   .emojiWrapper {
     @extend .emojiWrapper;
