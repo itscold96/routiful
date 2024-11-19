@@ -27,7 +27,7 @@ export default function CreateWorkoutModal({ routineId, isOpen, onClose }: Creat
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleFormSubmit}
-      buttonText={'추가하기'}
+      buttonText={'추가'}
     />
   );
 }
