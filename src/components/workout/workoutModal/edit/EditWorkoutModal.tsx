@@ -1,6 +1,7 @@
 import { FieldValues } from 'react-hook-form';
 import WorkoutModalBase from '../base/WorkoutModalBase';
 import { useUpdateWorkout } from 'queries/useUpdateWorkout';
+import { useToastAction } from 'stores/toast/action/useToastAction';
 
 interface EditWorkoutModalProps {
   id: string;
@@ -13,11 +14,13 @@ interface EditWorkoutModalProps {
 
 export default function EditWorkoutModal({ id, name, reps, sets, isOpen, onClose }: EditWorkoutModalProps) {
   const { mutate } = useUpdateWorkout();
+  const { addToast } = useToastAction();
 
   const handleFormSubmit = async (formData: FieldValues) => {
     if (formData.name && formData.sets && formData.reps) {
       const { name, sets, reps } = formData;
       mutate({ id, name, sets, reps });
+      addToast({ type: 'success', message: '운동 수정 완료!' });
     }
   };
 
