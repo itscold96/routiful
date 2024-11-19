@@ -4,8 +4,10 @@
   @extend .itemContainer;
   background-color: transparent;
   color: $white;
-  user-select: none; /* 롱프레스 시 모달 텍스트 선택 방지 */
-  -webkit-user-select: none; /* Safari용 */
+  user-select: none; /* 텍스트 선택 방지 */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE */
+  touch-action: manipulation; /* 터치 동작 제한 */
 
   .emojiWrapper {
     @extend .emojiWrapper;
