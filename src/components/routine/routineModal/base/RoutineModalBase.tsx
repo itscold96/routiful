@@ -1,16 +1,19 @@
 import { useValidForm } from 'hooks/useValidForm';
-import S from './CreateRoutineModal.module.scss';
+import S from './RoutineModalBase.module.scss';
 import { ValidationConfig } from 'types/validation';
 import Input from 'components/@shared/input/Input';
 import { FieldValues } from 'react-hook-form';
-import { useInsertRoutine } from 'queries/useInsertRoutine';
 import { VALID_OPTIONS } from 'constants/validOption';
 import Modal from 'components/@shared/overlay/modal/Modal';
-import { useToastAction } from 'stores/toast/action/useToastAction';
+import { useEffect } from 'react';
 
-interface CreateRoutineModalProps {
+interface RoutineModalBaseProps {
+  modalTitle: string;
   isOpen: boolean;
   onClose: () => void;
+  onSubmit: (formData: FieldValues) => Promise<void>;
+  buttonText: string;
+  routineName?: string;
 }
 
 const validConfig: ValidationConfig = {
@@ -20,27 +23,37 @@ const validConfig: ValidationConfig = {
   },
 };
 
-export default function CreateRoutineModal({ isOpen, onClose }: CreateRoutineModalProps) {
+export default function RoutineModalBase({
+  modalTitle,
+  isOpen,
+  onClose,
+  onSubmit,
+  buttonText,
+  routineName,
+}: RoutineModalBaseProps) {
   const { register, handleSubmit, errors, reset } = useValidForm({ validationConfig: validConfig, mode: 'onSubmit' });
-  const { addToast } = useToastAction();
-  const { mutate } = useInsertRoutine();
 
-  const closeModal = () => {
+  const handleCloseModal = () => {
     onClose();
     reset(); // 모달 닫을 때 입력값 초기화
   };
 
-  const handleFormSubmit = async (formData: FieldValues) => {
-    if (formData.name) {
-      const { name } = formData;
-      mutate(name);
-      closeModal();
-      addToast({ type: 'success', message: '루틴 생성 완료!' });
-    }
+  const handleFormSubmit = (formData: FieldValues) => {
+    onSubmit(formData);
+    handleCloseModal();
   };
 
+  useEffect(() => {
+    // 수정의 경우 루틴 이름이 이미 있으므로 해당 값으로 초기화
+    if (routineName) {
+      reset({
+        name: routineName,
+      });
+    }
+  }, [routineName]);
+
   return (
-    <Modal title={'새로운 루틴 추가'} isOpen={isOpen} onClose={closeModal}>
+    <Modal title={modalTitle} isOpen={isOpen} onClose={onClose}>
       <div className={S.modal}>
         <form className={S.createRoutineForm} onSubmit={handleSubmit(handleFormSubmit)}>
           <Input
@@ -50,7 +63,7 @@ export default function CreateRoutineModal({ isOpen, onClose }: CreateRoutineMod
             error={errors.name}
             message={errors.name?.message}
           />
-          <button className={S.submitButton}>추가</button>
+          <button className={S.submitButton}>{buttonText}</button>
         </form>
       </div>
     </Modal>
