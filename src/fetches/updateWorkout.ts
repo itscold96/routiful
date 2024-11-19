@@ -1,4 +1,4 @@
-import { UpdateWorkoutParams, WorkoutRows } from 'types/workout';
+import { UpdateWorkoutParams } from 'types/workout';
 import { supabase } from 'utils/supabaseClient';
 
 export const updateWorkout = async ({ id, name, reps, sets }: UpdateWorkoutParams) => {

@@ -5,6 +5,7 @@ import CreateNewItem from 'components/@shared/buttons/CreateNewItem';
 import WorkoutList from './WorkoutList';
 import { Suspense } from 'react';
 import CreateWorkoutModal from '../workoutModal/create/CreateWorkoutModal';
+import Loading from 'components/@shared/loading/Loading';
 
 interface WorkoutContentProps {
   routineId: string;
@@ -19,7 +20,7 @@ export default function WorkoutContent({ routineId, isEditing }: WorkoutContentP
       <CreateNewItem text={'새로운 운동 추가하기..'} onCreateClick={() => toggleDispatch({ type: 'on' })} />
       <CreateWorkoutModal routineId={routineId} isOpen={isModalOpen} onClose={() => toggleDispatch({ type: 'off' })} />
 
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <WorkoutList routineId={routineId} isEditing={isEditing} />
       </Suspense>
     </div>
