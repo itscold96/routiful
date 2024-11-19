@@ -15,10 +15,10 @@ export default function EditRoutineModal({ id, name, isOpen, onClose }: EditRout
   const { addToast } = useToastAction();
 
   const handleFormSubmit = async (formData: FieldValues) => {
-    if (formData.name && formData.sets && formData.reps) {
+    if (formData.name) {
       const { name } = formData;
       mutate({ name, id });
-      addToast({ type: 'success', message: '루틴 수정 완료!' });
+      addToast({ type: 'success', message: '루틴 이름 변경 완료!' });
     }
   };
 
@@ -28,7 +28,7 @@ export default function EditRoutineModal({ id, name, isOpen, onClose }: EditRout
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleFormSubmit}
-      buttonText={'추가'}
+      buttonText={'변경'}
       routineName={name}
     />
   );
