@@ -4,7 +4,7 @@ import { ListVideo } from 'lucide-react';
 import { useToggle } from 'hooks/useToggle';
 import EditRoutineModal from '../routineModal/edit/EditRoutineModal';
 import { useLongPress } from 'use-long-press';
-import { MouseEvent, TouchEvent } from 'react';
+import { MouseEvent } from 'react';
 
 interface RoutineItemProps {
   id: string;
@@ -23,9 +23,9 @@ export default function RoutineItem({ id, name }: RoutineItemProps) {
     toggleDispatch({ type: 'on' });
   };
 
-  const preventDefaultContextMenu = (event: MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault(); // 기본 동작(컨텍스트 메뉴) 막기
-  };
+  // const preventDefaultContextMenu = (event: MouseEvent<HTMLButtonElement>) => {
+  //   event.preventDefault(); // 기본 동작(컨텍스트 메뉴) 막기
+  // };
 
   const press = useLongPress(handleLongPress, {
     onCancel: handleShortClick, // 롱프레스가 아니면 짧은 클릭 처리
@@ -34,7 +34,7 @@ export default function RoutineItem({ id, name }: RoutineItemProps) {
 
   return (
     <>
-      <button {...press()} onContextMenu={preventDefaultContextMenu} className={S.routineItem}>
+      <button {...press()} className={S.routineItem}>
         <div className={S.emojiWrapper}>
           <ListVideo size={36} strokeWidth={1.8} />
         </div>
