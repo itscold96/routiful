@@ -13,7 +13,7 @@ export default function CreateRoutineModal({ isOpen, onClose }: CreateRoutineMod
   const { addToast } = useToastAction();
 
   const handleFormSubmit = async (formData: FieldValues) => {
-    if (formData.name && formData.sets && formData.reps) {
+    if (formData.name) {
       const { name } = formData;
       mutate(name);
       addToast({ type: 'success', message: '루틴 생성 완료!' });
