@@ -26,9 +26,6 @@ export default function RoutineItem({ id, name }: RoutineItemProps) {
   const preventDefaultContextMenu = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault(); // 기본 동작(컨텍스트 메뉴) 막기
   };
-  const preventTouchContextMenu = (event: TouchEvent<HTMLButtonElement>) => {
-    event.preventDefault(); // 터치 이벤트로 인한 기본 동작 차단
-  };
 
   const press = useLongPress(handleLongPress, {
     onCancel: handleShortClick, // 롱프레스가 아니면 짧은 클릭 처리
@@ -37,12 +34,7 @@ export default function RoutineItem({ id, name }: RoutineItemProps) {
 
   return (
     <>
-      <button
-        {...press()}
-        onTouchStart={preventTouchContextMenu}
-        onContextMenu={preventDefaultContextMenu}
-        className={S.routineItem}
-      >
+      <button {...press()} onContextMenu={preventDefaultContextMenu} className={S.routineItem}>
         <div className={S.emojiWrapper}>
           <ListVideo size={36} strokeWidth={1.8} />
         </div>
