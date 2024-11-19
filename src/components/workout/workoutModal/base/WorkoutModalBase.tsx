@@ -13,7 +13,7 @@ interface InitialValues {
   reps: number;
 }
 
-interface WorkoutModalProps {
+interface WorkoutModalBaseProps {
   modalTitle: string;
   isOpen: boolean;
   onClose: () => void;
@@ -47,7 +47,7 @@ export default function WorkoutModalBase({
   onSubmit,
   buttonText,
   initialValues,
-}: WorkoutModalProps) {
+}: WorkoutModalBaseProps) {
   const { register, handleSubmit, errors, reset } = useValidForm({ validationConfig: validConfig, mode: 'onSubmit' });
 
   const handleCloseModal = () => {
