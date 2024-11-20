@@ -6,6 +6,7 @@ import WorkoutContent from 'components/workout/workoutContent/WorkoutContent';
 import classNames from 'classnames';
 import { Cog, Play } from 'lucide-react';
 import { useWorkoutCount } from 'queries/useWorkoutCount';
+import { useEffect } from 'react';
 
 interface WorkoutContentContainerProps {
   routineId: string;
@@ -41,6 +42,15 @@ export default function WorkoutContentContainer({ routineId }: WorkoutContentCon
       }
     }
   };
+
+  useEffect(() => {
+    // 편집에서 모든 아이템을 삭제하면 편집이 종료되어야 하는 것이 맞다고 생각함.
+    if (workoutCount === 0) {
+      toggleDispatch({ type: 'off' });
+      addToast({ type: 'warn', message: '새로운 운동을 추가해봐요!' });
+    }
+  }, [workoutCount]);
+
   return (
     <>
       <div className={S.buttonContainer}>
