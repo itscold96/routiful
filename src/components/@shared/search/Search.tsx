@@ -55,9 +55,12 @@ export default function Search({ setKeyword }: SearchProps) {
         onChange={handleSearchValueChange}
         onClick={() => toggleDispatch({ type: 'on' })}
       />
-      <button className={S.resetButton}>
-        <RotateCcw size={25} strokeWidth={2.5} onClick={handleResetClick} />
-      </button>
+      {searchValue && (
+        <button className={S.resetButton}>
+          <RotateCcw size={25} strokeWidth={2.5} onClick={handleResetClick} />
+        </button>
+      )}
+
       {isShowPreview && (
         <ul onClick={handlePreviewItemClick} className={S.preview}>
           {searchList?.map((routine) => (
