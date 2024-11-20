@@ -2,7 +2,7 @@ import { useSuspenseQuery } from '@tanstack/react-query';
 import { WORKOUT_LIST_QUERY_KEY } from 'constants/queryKeys';
 import { getWorkoutList } from 'fetches/getWorkoutList';
 
-export const useWorkoutList = (routineId: string | undefined) => {
+export const useWorkoutList = (routineId: string) => {
   return useSuspenseQuery({
     queryKey: [WORKOUT_LIST_QUERY_KEY, routineId],
     queryFn: () => getWorkoutList(routineId),

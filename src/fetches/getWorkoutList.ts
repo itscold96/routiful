@@ -1,6 +1,6 @@
 import { supabase } from 'utils/supabaseClient';
 
-export const getWorkoutList = async (routineId: string | undefined) => {
+export const getWorkoutList = async (routineId: string) => {
   if (!routineId) {
     return [];
   }
