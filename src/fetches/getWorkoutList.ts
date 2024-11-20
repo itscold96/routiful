@@ -5,10 +5,14 @@ export const getWorkoutList = async (routineId: string) => {
     return [];
   }
 
-  const { data } = await supabase.from('workout_table').select('*').eq('related_routine_id', routineId).order('order');
+  const { data, error } = await supabase
+    .from('workout_table')
+    .select('*')
+    .eq('related_routine_id', routineId)
+    .order('order');
 
-  if (!data) {
-    return [];
+  if (error) {
+    throw new Error('운동 검색 실패');
   }
 
   return data;

@@ -1,16 +1,55 @@
+@use '/src/styles/abstracts/core' as *;
+
 .searchForm {
   position: relative;
 
   .searchIcon {
     position: absolute;
-    top: 9px;
+    height: 100%;
+    top: 0;
     left: 10px;
   }
 
-  .search {
+  .resetButton {
+    position: absolute;
+    height: 100%;
+    top: 2px;
+    right: 5px;
+    color: $red;
+    background-color: transparent;
+  }
+
+  .searchInput {
     input {
-      height: 38px;
-      padding-left: 35px;
+      height: 46px;
+      padding: 0 45px;
+      font-size: 18px;
+    }
+  }
+
+  .preview {
+    position: absolute;
+    background-color: $black;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid $gray500;
+    color: $red;
+    top: 60px;
+    left: 0;
+    overflow: hidden;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    .previewItem {
+      padding: 15px 12px;
+      &:hover {
+        background-color: $gray900;
+        cursor: pointer;
+      }
+      &:not(:last-child) {
+        border-bottom: 1px solid $gray500;
+      }
     }
   }
 }

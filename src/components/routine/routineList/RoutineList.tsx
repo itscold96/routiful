@@ -6,8 +6,12 @@ import { useToggle } from 'hooks/useToggle';
 import CreateRoutineModal from '../routineModal/create/CreateRoutineModal';
 import Empty from 'components/@shared/empty/Empty';
 
-export default function RoutineList() {
-  const { data: routineList, isError } = useRoutineList();
+interface RoutineListProps {
+  keyword: string;
+}
+
+export default function RoutineList({ keyword }: RoutineListProps) {
+  const { data: routineList, isError } = useRoutineList({ keyword });
   const { toggleValue: isOpen, toggleDispatch } = useToggle();
 
   return (
