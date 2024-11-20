@@ -9,4 +9,8 @@
     background-color: $gray700;
     color: $red;
   }
+
+  .rotate {
+    animation: $rotateCenter;
+  }
 }

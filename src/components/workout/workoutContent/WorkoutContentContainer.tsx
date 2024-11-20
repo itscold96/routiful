@@ -49,7 +49,7 @@ export default function WorkoutContentContainer({ routineId }: WorkoutContentCon
           시작
         </button>
         <button className={S.button} onClick={handleEditToggle}>
-          <Cog size={25} strokeWidth={2.2} className={classNames(S.icon, { [S.rotate]: isEditing })} />
+          <Cog size={25} strokeWidth={2.2} className={classNames({ [S.rotate]: isEditing })} />
           {isEditing ? '편집 완료' : '편집'}
         </button>
       </div>
