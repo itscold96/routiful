@@ -19,7 +19,8 @@ export default function RoutineList({ keyword }: RoutineListProps) {
       <CreateNewItem text={'새로운 루틴 추가하기..'} onCreateClick={() => toggleDispatch({ type: 'on' })} />
       <CreateRoutineModal isOpen={isOpen} onClose={() => toggleDispatch({ type: 'off' })} />
       {(isError || routineList?.length === 0) && <Empty text={'만들어진 루틴이 없네요..'} />}
-      {routineList?.map((routine) => <RoutineItem key={routine.id} id={routine.id} name={routine.name} />)}
+      {routineList &&
+        routineList.map((routine) => <RoutineItem key={routine.id} id={routine.id} name={routine.name} />)}
     </div>
   );
 }

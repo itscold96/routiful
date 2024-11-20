@@ -36,26 +36,27 @@ export default function WorkoutList({ routineId, isEditing }: WorkoutListProps) 
     <section ref={containerRef} className={S.workoutListContainer}>
       {(isError || workoutList?.length === 0) && <Empty text={'추가된 운동이 없네요..'} />}
       <Reorder.Group className={S.workoutList} axis="y" values={workoutList} onReorder={setWorkoutList}>
-        {workoutList?.map((workout, index) => (
-          <Reorder.Item
-            key={workout.id}
-            value={workout}
-            id={workout.id}
-            onDragEnd={handleDragEnd}
-            dragConstraints={containerRef}
-            dragElastic={0.1}
-            dragListener={!isEditing}
-          >
-            <WorkoutItem
+        {workoutList &&
+          workoutList.map((workout, index) => (
+            <Reorder.Item
+              key={workout.id}
+              value={workout}
               id={workout.id}
-              name={workout.name}
-              reps={workout.reps}
-              sets={workout.sets}
-              order={index}
-              isEditing={isEditing}
-            />
-          </Reorder.Item>
-        ))}
+              onDragEnd={handleDragEnd}
+              dragConstraints={containerRef}
+              dragElastic={0.1}
+              dragListener={!isEditing}
+            >
+              <WorkoutItem
+                id={workout.id}
+                name={workout.name}
+                reps={workout.reps}
+                sets={workout.sets}
+                order={index}
+                isEditing={isEditing}
+              />
+            </Reorder.Item>
+          ))}
       </Reorder.Group>
     </section>
   );
