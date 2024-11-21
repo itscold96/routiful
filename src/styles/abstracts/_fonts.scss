@@ -1,14 +1,19 @@
 @font-face {
-  font-family: 'Moneygraphy-Rounded';
-  font-weight: normal;
+  font-family: 'GongGothic';
+  src: url('../../fonts/esamanruMedium.ttf') format('truetype');
+  font-weight: 100 600;
   font-style: normal;
-  font-display: swap;
-  src: url('../../fonts/Moneygraphy-Rounded.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'GongGothic';
+  src: url('../../fonts/esamanruBold.ttf') format('truetype');
+  font-weight: 700 900;
+  font-style: normal;
 }
 
 * {
   font-family:
-    'Moneygraphy-Rounded',
+    'GongGothic',
     -apple-system,
     BlinkMacSystemFont,
     system-ui,

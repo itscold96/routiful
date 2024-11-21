@@ -9,7 +9,7 @@ export default function Routine() {
 
   return (
     <div className={S.routineContainer}>
-      <h1 className={S.title}>루틴 리스트</h1>
+      <h1 className={S.title}>루틴리스트</h1>
       <Search setKeyword={setKeyword} />
       <Suspense fallback={<Loading />}>
         <RoutineList keyword={keyword} />
