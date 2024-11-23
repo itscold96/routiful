@@ -81,7 +81,7 @@
 
 | 루틴 검색 |
 | --- |
-| <div align='center'> <img src="https://github.com/user-attachments/assets/c8fe5da8-4f32-4821-97f7-4318862bb91d" width='200'/> </div> |
+| <div align='center'> <img src="https://github.com/user-attachments/assets/c8fe5da8-4f32-4821-97f7-4318862bb91d" width='250'/> </div> |
 | - 루틴이 많아져도 걱정마세요, 검색할 수 있어요! <br> - 루틴 이름이 기억이 안나도 걱정마세요, 자동 완성 기능이 있어요! |
 
 | 운동 리스트 관리 |
