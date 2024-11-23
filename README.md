@@ -76,7 +76,7 @@
 
 | 루틴 생성, 수정, 삭제 |
 | --- |
-| <img src="https://github.com/user-attachments/assets/9c27f187-6ef4-49c5-9763-cd3f3990438c" width='200'/>  <img src="https://github.com/user-attachments/assets/5e2b40d0-29fe-4f43-a915-dfad14ecd058" width='200'/> <img src="https://github.com/user-attachments/assets/1fa71a15-0657-45c5-ae39-41a0778b54b1" width='200'/> |
+| <img src="https://github.com/user-attachments/assets/9c27f187-6ef4-49c5-9763-cd3f3990438c" width='250'/>  <img src="https://github.com/user-attachments/assets/5e2b40d0-29fe-4f43-a915-dfad14ecd058" width='250'/> <img src="https://github.com/user-attachments/assets/1fa71a15-0657-45c5-ae39-41a0778b54b1" width='250'/> |
 | - 손쉽게 루틴을 생성하고 관리할 수 있어요! <br> - 루틴을 생성해봐요! <br> - 물로 루틴 이름 변경, 삭제도 가능해요! |
 
 | 루틴 검색 |
@@ -86,12 +86,12 @@
 
 | 운동 리스트 관리 |
 | --- |
-| <img src="https://github.com/user-attachments/assets/010ef5f9-66d8-4624-aead-888b08c5a905" width='200'/> <img src="https://github.com/user-attachments/assets/a3059325-422c-490c-adaa-a5abaef92fb3" width='200'/> <img src="https://github.com/user-attachments/assets/d12d6dac-17ff-44e7-8b2b-b79ecd8ff27f" width='200'/>  |
+| <img src="https://github.com/user-attachments/assets/010ef5f9-66d8-4624-aead-888b08c5a905" width='250'/> <img src="https://github.com/user-attachments/assets/a3059325-422c-490c-adaa-a5abaef92fb3" width='250'/> <img src="https://github.com/user-attachments/assets/d12d6dac-17ff-44e7-8b2b-b79ecd8ff27f" width='250'/>  |
 | - 루틴을 클릭한 뒤 운동을 추가해요! <br> - 잘못된 입력값은 미리 검사해요! <br> - 운동 순서는 드래그 앤 드랍으로 언제든 바꿀 수 있어요! <br> - 편집 버튼을 누르면 수정과 삭제도 가능해요! |
 
 | 루틴 플레이 |
 | --- |
-| <div align='center'><img src="https://github.com/user-attachments/assets/ffe75edf-2507-4293-acd7-40e797247365" width='200'/> <img src="https://github.com/user-attachments/assets/252fa5b6-454a-4c35-bc25-f9eb6d15786f" width='200'/> </div>  |
+| <div align='center'><img src="https://github.com/user-attachments/assets/ffe75edf-2507-4293-acd7-40e797247365" width='250'/> <img src="https://github.com/user-attachments/assets/252fa5b6-454a-4c35-bc25-f9eb6d15786f" width='250'/> </div>  |
 | - 루틴을 플레이해요! <br> - 현재 세트 수와 세트 별 횟수를 볼 수 있어요! <br> - 원한다면 언제든 종료할 수 있어요! |
 
 </div>
