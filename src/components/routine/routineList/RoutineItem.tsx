@@ -30,7 +30,7 @@ export default function RoutineItem({ id, name }: RoutineItemProps) {
           <ListVideo size={36} strokeWidth={1.8} />
         </div>
         <div className={S.itemContent}>
-          <div>{name}</div>
+          <div className={S.name}>{name}</div>
           <button className={S.edit} onClick={handleEditClick}>
             <Cog size={23} strokeWidth={2.2} />
           </button>

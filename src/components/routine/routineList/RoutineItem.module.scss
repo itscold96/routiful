@@ -12,14 +12,18 @@
   }
 
   .itemContent {
+    @extend .itemNameContainer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 
-    @extend .itemNameContainer;
+    .name {
+      @extend .textEllipsis;
+    }
 
     .edit {
+      flex-shrink: 0;
       background-color: transparent;
       color: $red;
       width: 60px;
