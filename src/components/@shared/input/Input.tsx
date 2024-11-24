@@ -16,7 +16,13 @@ export default function Input({ htmlFor, label, error, message, register, classN
   return (
     <div className={classNames(S.inputWrapper, className)}>
       {label && <label htmlFor={htmlFor}>{label}</label>}
-      <input id={htmlFor} className={classNames({ [S.error]: error })} {...register} {...inputProps} />
+      <input
+        id={htmlFor}
+        className={classNames({ [S.error]: error })}
+        autoComplete={'off'}
+        {...register}
+        {...inputProps}
+      />
       {message && <p className={S.message}>{message.toString()}</p>}
     </div>
   );

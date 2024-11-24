@@ -9,6 +9,7 @@
 
   font-size: 17px;
   font-weight: 500;
+  user-select: none;
 
   &.success {
     border: 1px solid $successGreen200;

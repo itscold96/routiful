@@ -51,9 +51,8 @@ export default function RoutineModalBase({
   const handleRemoveClick = () => {
     if (onRemoveClick) {
       onRemoveClick();
-      onClose();
-      reset(); // 모달 닫을 때 입력값 초기화
     }
+    handleCloseModal();
   };
 
   useEffect(() => {
@@ -66,7 +65,7 @@ export default function RoutineModalBase({
   }, [routineName]);
 
   return (
-    <Modal title={modalTitle} isOpen={isOpen} onClose={onClose}>
+    <Modal title={modalTitle} isOpen={isOpen} onClose={handleCloseModal}>
       <div className={S.modal}>
         <form className={S.createRoutineForm} onSubmit={handleSubmit(handleFormSubmit)}>
           <Input

@@ -14,9 +14,11 @@
     font-weight: 700;
   }
 
-  .buttonContainer {
+  .contentContainer {
     display: flex;
+    justify-content: center;
     gap: 25px;
+    width: 100%;
 
     button {
       font-size: 18px;

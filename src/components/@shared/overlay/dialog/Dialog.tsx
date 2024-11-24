@@ -16,7 +16,7 @@ export default function Dialog({ children, isDialogOpen, message, type }: Dialog
       <div className={S.dialog}>
         {type && <TypeIcon type={type} />}
         <div className={S.message}>{message}</div>
-        <div className={S.buttonContainer}>{children}</div>
+        <div className={S.contentContainer}>{children}</div>
       </div>
     </ModalFrame>
   );

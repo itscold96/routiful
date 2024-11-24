@@ -2,12 +2,13 @@ import Dialog from 'components/@shared/overlay/dialog/Dialog';
 import { useConfirm } from 'hooks/useConfirm';
 import { useEffect } from 'react';
 import S from './TutorialModal.module.scss';
+import Carousel from './Carousel';
 
 export default function TutorialModal() {
   const { confirm, confirmMessage, isConfirmOpen, onConfirmCancel, onConfirmOk } = useConfirm();
 
   const handleConfirm = async () => {
-    const isConfirm = await confirm('튜토리얼');
+    const isConfirm = await confirm('루티플 사용법');
     if (isConfirm) {
       // 다시 보지 않기 클릭
       localStorage.setItem('isTutorialRequired', JSON.stringify({ isRequired: false }));
@@ -31,9 +32,12 @@ export default function TutorialModal() {
   return (
     <Dialog isDialogOpen={isConfirmOpen} message={confirmMessage}>
       <div className={S.modalContainer}>
+        <Carousel />
         <section className={S.buttonContainer}>
-          <button onClick={onConfirmOk}>다시 보지 않기</button>
-          <button onClick={onConfirmCancel}>확인</button>
+          <button onClick={onConfirmOk} className={S.optOut}>
+            다시 보지 않기
+          </button>
+          <button onClick={onConfirmCancel}>닫기</button>
         </section>
       </div>
     </Dialog>
