@@ -4,45 +4,37 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { TUTORIAL_DATA } from 'constants/tutorial';
 import classNames from 'classnames';
 
-const wrap = (min: number, max: number, value: number) => {
-  const range = max - min;
-  return ((((value - min) % range) + range) % range) + min;
-};
-
-const variants = {
-  enter: (direction: number) => {
-    return {
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-    };
-  },
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1,
-  },
-  exit: (direction: number) => {
-    return {
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-    };
-  },
-};
-
-const swipeConfidenceThreshold = 10000;
-
-const swipePower = (offset: number, velocity: number) => {
-  return Math.abs(offset) * velocity;
-};
+const SWIPE_CONFIDENCE_THRESHOLD = 10000;
+const SWIPE_DISTANCE = 1000;
 
 export default function Carousel() {
   const [[page, direction], setPage] = useState([0, 0]);
+  const carouselIndex = (page + TUTORIAL_DATA.length) % TUTORIAL_DATA.length;
 
-  const imageIndex = wrap(0, TUTORIAL_DATA.length, page);
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? SWIPE_DISTANCE : -SWIPE_DISTANCE,
+      opacity: 0,
+    }),
+    center: { x: 0, opacity: 1, zIndex: 1 },
+    exit: (direction: number) => ({
+      x: direction > 0 ? -SWIPE_DISTANCE : SWIPE_DISTANCE,
+      opacity: 0,
+      zIndex: 0,
+    }),
+  };
 
-  const paginate = (newDirection: number) => {
-    setPage([page + newDirection, newDirection]);
+  const handlePaginate = (newDirection: number) => {
+    setPage(([prevPage]) => [prevPage + newDirection, newDirection]);
+  };
+
+  const handleDragEnd = (offset: number, velocity: number) => {
+    const swipePower = Math.abs(offset) * velocity;
+    if (swipePower > SWIPE_CONFIDENCE_THRESHOLD) {
+      handlePaginate(-1);
+    } else if (swipePower < -SWIPE_CONFIDENCE_THRESHOLD) {
+      handlePaginate(1);
+    }
   };
 
   return (
@@ -63,25 +55,18 @@ export default function Carousel() {
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={1}
-            onDragEnd={(e, { offset, velocity }) => {
-              const swipe = swipePower(offset.x, velocity.x);
-              if (swipe < -swipeConfidenceThreshold) {
-                paginate(1);
-              } else if (swipe > swipeConfidenceThreshold) {
-                paginate(-1);
-              }
-            }}
+            onDragEnd={(e, { offset, velocity }) => handleDragEnd(offset.x, velocity.x)}
           >
             <div className={S.content}>
-              <motion.img className={S.image} src={TUTORIAL_DATA[imageIndex].imageSrc} draggable={false} />
-              <p className={S.description}>{TUTORIAL_DATA[imageIndex].description}</p>
+              <motion.img className={S.image} src={TUTORIAL_DATA[carouselIndex].imageSrc} draggable={false} />
+              <p className={S.description}>{TUTORIAL_DATA[carouselIndex].description}</p>
             </div>
           </motion.div>
         </AnimatePresence>
       </div>
       <div className={S.dotContainer}>
         {TUTORIAL_DATA.map((_, index) => (
-          <div key={index} className={classNames(S.dot, { [S.selected]: index === imageIndex })} />
+          <div key={index} className={classNames(S.dot, { [S.selected]: index === carouselIndex })} />
         ))}
       </div>
     </div>
