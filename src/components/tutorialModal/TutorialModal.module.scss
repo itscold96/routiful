@@ -1,0 +1,12 @@
+@use '/src/styles/abstracts/core' as *;
+
+.modalContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .buttonContainer {
+    display: flex;
+    gap: 10px;
+  }
+}
