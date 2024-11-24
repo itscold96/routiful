@@ -1,12 +1,11 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { ROUTINE_LIST_QUERY_KEY } from 'constants/queryKeys';
-import { updateRoutine } from 'fetches/updateRoutine';
-import { UpdateRoutineParams } from 'types/routine';
+import { insertRoutine } from 'fetches/updates/insertRoutine';
 
-export const useUpdateRoutine = () => {
+export const useInsertRoutine = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ id, name }: UpdateRoutineParams) => updateRoutine({ id, name }),
+    mutationFn: (routineName: string) => insertRoutine(routineName),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [ROUTINE_LIST_QUERY_KEY] });
     },

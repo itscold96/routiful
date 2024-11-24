@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { WORKOUT_LIST_QUERY_KEY } from 'constants/queryKeys';
-import { removeWorkout } from 'fetches/removeWorkout';
+import { removeWorkout } from 'fetches/deletes/removeWorkout';
 
 export const useRemoveWorkout = () => {
   const queryClient = useQueryClient();

@@ -5,7 +5,7 @@ import S from './WorkoutContentContainer.module.scss';
 import WorkoutContent from 'components/workout/workoutContent/WorkoutContent';
 import classNames from 'classnames';
 import { Cog, Play } from 'lucide-react';
-import { useWorkoutCount } from 'queries/useWorkoutCount';
+import { useWorkoutCount } from 'queries/useQuery/useWorkoutCount';
 import { useEffect } from 'react';
 
 interface WorkoutContentContainerProps {

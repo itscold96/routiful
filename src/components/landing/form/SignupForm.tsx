@@ -1,7 +1,7 @@
 import S from './AuthForm.module.scss';
 import Input from 'components/@shared/input/Input';
 import { VALID_OPTIONS } from 'constants/validOption';
-import { signup } from 'fetches/signup';
+import { signup } from 'fetches/updates/signup';
 import { useValidForm } from 'hooks/useValidForm';
 import { FieldValues } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';

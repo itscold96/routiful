@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { WORKOUT_LIST_QUERY_KEY } from 'constants/queryKeys';
-import { reorderWorkoutList } from 'fetches/reorderWorkoutList';
+import { reorderWorkoutList } from 'fetches/updates/reorderWorkoutList';
 import { ReorderWorkoutListParams } from 'types/workout';
 
 export const useReorderWorkout = () => {

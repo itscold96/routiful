@@ -1,6 +1,6 @@
 import { FieldValues } from 'react-hook-form';
 import WorkoutModalBase from '../base/WorkoutModalBase';
-import { useUpdateWorkout } from 'queries/useUpdateWorkout';
+import { useUpdateWorkout } from 'queries/useMutation/useUpdateWorkout';
 import { useToastAction } from 'stores/toast/action/useToastAction';
 
 interface EditWorkoutModalProps {

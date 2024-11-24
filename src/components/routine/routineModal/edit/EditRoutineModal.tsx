@@ -1,8 +1,8 @@
 import RoutineModalBase from '../base/RoutineModalBase';
 import { useToastAction } from 'stores/toast/action/useToastAction';
 import { FieldValues } from 'react-hook-form';
-import { useUpdateRoutine } from 'queries/useUpdateRoutine';
-import { useRemoveRoutine } from 'queries/useRemoveRoutine';
+import { useUpdateRoutine } from 'queries/useMutation/useUpdateRoutine';
+import { useRemoveRoutine } from 'queries/useMutation/useRemoveRoutine';
 
 interface EditRoutineModalProps {
   id: string;

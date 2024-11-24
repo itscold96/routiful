@@ -1,5 +1,5 @@
 import { FieldValues } from 'react-hook-form';
-import { useInsertWorkout } from 'queries/useInsertWorkout';
+import { useInsertWorkout } from 'queries/useMutation/useInsertWorkout';
 import WorkoutModalBase from '../base/WorkoutModalBase';
 import { useToastAction } from 'stores/toast/action/useToastAction';
 

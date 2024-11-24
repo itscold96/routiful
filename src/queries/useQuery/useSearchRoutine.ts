@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { SEARCH_ROUTINE_QUERY_KEY } from 'constants/queryKeys';
-import { getRoutineList } from 'fetches/getRoutineList';
+import { getRoutineList } from 'fetches/gets/getRoutineList';
 
 interface UseSearchRoutineParams {
   keyword: string;

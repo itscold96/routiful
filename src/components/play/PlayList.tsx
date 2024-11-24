@@ -1,4 +1,4 @@
-import { useWorkoutList } from 'queries/useWorkoutList';
+import { useWorkoutList } from 'queries/useSuspenseQuery/useWorkoutList';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { buildStyles, CircularProgressbarWithChildren } from 'react-circular-progressbar';

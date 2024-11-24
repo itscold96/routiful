@@ -1,5 +1,5 @@
 import S from './RoutineList.module.scss';
-import { useRoutineList } from 'queries/useRoutineList';
+import { useRoutineList } from 'queries/useSuspenseQuery/useRoutineList';
 import RoutineItem from './RoutineItem';
 import CreateNewItem from 'components/@shared/buttons/CreateNewItem';
 import { useToggle } from 'hooks/useToggle';

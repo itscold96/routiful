@@ -1,13 +1,12 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { WORKOUT_LIST_QUERY_KEY } from 'constants/queryKeys';
-import { insertWorkout } from 'fetches/insertWorkout';
-import { InsertWorkoutParams } from 'types/workout';
+import { updateWorkout } from 'fetches/updates/updateWorkout';
+import { UpdateWorkoutParams } from 'types/workout';
 
-export const useInsertWorkout = () => {
+export const useUpdateWorkout = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ name, sets, reps, related_routine_id }: InsertWorkoutParams) =>
-      insertWorkout({ name, sets, reps, related_routine_id }),
+    mutationFn: ({ id, name, reps, sets }: UpdateWorkoutParams) => updateWorkout({ id, name, reps, sets }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [WORKOUT_LIST_QUERY_KEY] });
     },

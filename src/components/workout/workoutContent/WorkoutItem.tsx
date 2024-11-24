@@ -1,7 +1,7 @@
 import { WorkoutWithoutRelatedId } from 'types/workout';
 import S from './WorkoutItem.module.scss';
 import { Trash2 } from 'lucide-react';
-import { useRemoveWorkout } from 'queries/useRemoveWorkout';
+import { useRemoveWorkout } from 'queries/useMutation/useRemoveWorkout';
 import { useToggle } from 'hooks/useToggle';
 import EditWorkoutModal from '../workoutModal/edit/EditWorkoutModal';
 import classNames from 'classnames';

@@ -1,7 +1,7 @@
 import RoutineModalBase from '../base/RoutineModalBase';
 import { useToastAction } from 'stores/toast/action/useToastAction';
 import { FieldValues } from 'react-hook-form';
-import { useInsertRoutine } from 'queries/useInsertRoutine';
+import { useInsertRoutine } from 'queries/useMutation/useInsertRoutine';
 
 interface CreateRoutineModalProps {
   isOpen: boolean;

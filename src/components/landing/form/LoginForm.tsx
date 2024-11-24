@@ -1,7 +1,7 @@
 import S from './AuthForm.module.scss';
 import Input from 'components/@shared/input/Input';
 import { VALID_OPTIONS } from 'constants/validOption';
-import { signin } from 'fetches/signin';
+import { signin } from 'fetches/updates/signin';
 import { useValidForm } from 'hooks/useValidForm';
 import { useEffect } from 'react';
 import { FieldValues } from 'react-hook-form';

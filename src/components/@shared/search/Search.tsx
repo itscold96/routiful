@@ -2,7 +2,7 @@ import Input from 'components/@shared/input/Input';
 import S from './Search.module.scss';
 import { RotateCcw, Search as SearchIcon } from 'lucide-react';
 import { ChangeEvent, FormEvent, useDeferredValue, useState, MouseEvent } from 'react';
-import { useSearchRoutine } from 'queries/useSearchRoutine';
+import { useSearchRoutine } from 'queries/useQuery/useSearchRoutine';
 import { useToggle } from 'hooks/useToggle';
 
 interface SearchProps {

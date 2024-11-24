@@ -1,9 +1,9 @@
 import S from './WorkoutList.module.scss';
-import { useWorkoutList } from 'queries/useWorkoutList';
+import { useWorkoutList } from 'queries/useSuspenseQuery/useWorkoutList';
 import WorkoutItem from './WorkoutItem';
 import { Reorder } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
-import { useReorderWorkout } from 'queries/useReorderWorkout';
+import { useReorderWorkout } from 'queries/useMutation/useReorderWorkout';
 import Empty from 'components/@shared/empty/Empty';
 interface WorkoutListProps {
   routineId: string;
