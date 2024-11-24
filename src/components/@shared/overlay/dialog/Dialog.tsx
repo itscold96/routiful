@@ -10,11 +10,11 @@ interface DialogProps {
   type?: 'success' | 'warn' | 'error';
 }
 
-export default function Dialog({ children, isDialogOpen, message, type = 'success' }: DialogProps) {
+export default function Dialog({ children, isDialogOpen, message, type }: DialogProps) {
   return (
     <ModalFrame isOpen={isDialogOpen} onClose={() => null}>
       <div className={S.dialog}>
-        <TypeIcon type={type} />
+        {type && <TypeIcon type={type} />}
         <div className={S.message}>{message}</div>
         <div className={S.buttonContainer}>{children}</div>
       </div>
