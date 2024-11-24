@@ -24,6 +24,7 @@
 - 😉 운동 순서를 매일 바꾸고 싶으면? **루티플은 드래그 앤 드롭으로 바로 바꿔요!**
 
 <br>
+![KakaoTalk_Video_2024-11-24-23-03-58]()
 
 
 ## 🛠️ 기술 스택
@@ -75,16 +76,16 @@
 ## 📝 프로젝트 기능 소개
 
 <div align='center'>
-
-| 루티플 튜토리얼 |
+  
+| 쉬운 루티플 |
 | --- |
-| <div align='center'><img src="https://github.com/user-attachments/assets/ecdec871-14dd-4abb-91cc-f0e27002195a" width='250'/> </div>  |
-| - 사용법은 어렵지 않아요! <br> - 루티플이 처음이라면 핵심 기능만 딱 설명드려요! <br> - 다시 보지 않기를 누르면 다음부터는 보이지 않아요! |
+| <div align='center'> <img src="https://github.com/user-attachments/assets/dc3bb1a8-6e40-4543-865e-ee376f5b8297" height='444' width='250'/> <img src="https://github.com/user-attachments/assets/ecdec871-14dd-4abb-91cc-f0e27002195a" width='250'/> </div>  |
+| - PWA 적용으로 홈화면에 추가해서 앱처럼 사용해요! <br> - 루티플이 처음이라면 튜토리얼 모달이 핵심 기능만 딱 설명드려요! <br> - 다시 보지 않기를 누르면 다음부터는 보이지 않아요! |
 
 | 루틴 생성, 수정, 삭제 |
 | --- |
 | <img src="https://github.com/user-attachments/assets/9c27f187-6ef4-49c5-9763-cd3f3990438c" width='250'/>  <img src="https://github.com/user-attachments/assets/5e2b40d0-29fe-4f43-a915-dfad14ecd058" width='250'/> <img src="https://github.com/user-attachments/assets/1fa71a15-0657-45c5-ae39-41a0778b54b1" width='250'/> |
-| - 손쉽게 루틴을 생성하고 관리할 수 있어요! <br> - 루틴을 생성해봐요! <br> - 물로 루틴 이름 변경, 삭제도 가능해요! |
+| - 손쉽게 루틴을 생성하고 관리할 수 있어요! <br> - 루틴을 생성해봐요! <br> - 물론 루틴 이름 변경, 삭제도 가능해요! |
 
 | 루틴 검색 |
 | --- |
