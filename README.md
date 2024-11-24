@@ -76,6 +76,11 @@
 
 <div align='center'>
 
+| 루티플 튜토리얼 |
+| --- |
+| <div align='center'><img src="https://github.com/user-attachments/assets/ecdec871-14dd-4abb-91cc-f0e27002195a" width='250'/> </div>  |
+| - 사용법은 어렵지 않아요! <br> - 루티플이 처음이라면 핵심 기능만 딱 설명드려요! <br> - 다시 보지 않기를 누르면 다음부터는 보이지 않아요! |
+
 | 루틴 생성, 수정, 삭제 |
 | --- |
 | <img src="https://github.com/user-attachments/assets/9c27f187-6ef4-49c5-9763-cd3f3990438c" width='250'/>  <img src="https://github.com/user-attachments/assets/5e2b40d0-29fe-4f43-a915-dfad14ecd058" width='250'/> <img src="https://github.com/user-attachments/assets/1fa71a15-0657-45c5-ae39-41a0778b54b1" width='250'/> |
