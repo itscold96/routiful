@@ -5,12 +5,18 @@ import { useToggle } from 'hooks/useToggle';
 import { useToastAction } from 'stores/toast/action/useToastAction';
 import classNames from 'classnames';
 
-const DELAY = 4 * 1000; // 토스트 삭제 딜레이 4초
+const DELAY = 2.5 * 1000; // 토스트 삭제 딜레이 2.5초
 const EXIT_ANIMATION_DELAY = 600; // 자연스러운 삭제 애니메이션을 위한 유예 시간 0.6초
 
 export default function Toast({ id, type, message }: ToastProps) {
   const { toggleValue: isExit, toggleDispatch } = useToggle();
   const { removeToast } = useToastAction();
+
+  const handleToastClick = () => {
+    // 딜레이 타이머가 끝나면 전역 토스트 리스트에서 제거되므로
+    // 사용자에게 보이는 토스트만 미리 사라지도록 함
+    toggleDispatch({ type: 'on' });
+  };
 
   useEffect(() => {
     const timerId = setTimeout(() => {
@@ -29,6 +35,7 @@ export default function Toast({ id, type, message }: ToastProps) {
 
   return (
     <div
+      onClick={handleToastClick}
       className={classNames(S.toast, {
         [S.success]: type === 'success',
         [S.warn]: type === 'warn',
