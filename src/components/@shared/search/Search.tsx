@@ -53,7 +53,7 @@ export default function Search({ setKeyword }: SearchProps) {
         className={S.searchInput}
         value={searchValue}
         onChange={handleSearchValueChange}
-        onClick={() => toggleDispatch({ type: 'on' })}
+        onClick={() => toggleDispatch({ type: 'off' })}
       />
       {searchValue && (
         <button className={S.resetButton}>
