@@ -21,6 +21,7 @@ export default function TutorialModal() {
     if (!storage) {
       // isTutorialRequired 키가 없다면 생성 후 튜토리얼 모달을 띄움
       localStorage.setItem('isTutorialRequired', JSON.stringify({ isRequired: true }));
+      handleConfirm();
     } else {
       // isTutorialRequired 키가 있다면 값을 판단함
       const { isRequired } = JSON.parse(storage) as { isRequired: boolean };
@@ -29,6 +30,7 @@ export default function TutorialModal() {
       }
     }
   }, []);
+
   return (
     <Dialog isDialogOpen={isConfirmOpen} message={confirmMessage}>
       <div className={S.modalContainer}>
