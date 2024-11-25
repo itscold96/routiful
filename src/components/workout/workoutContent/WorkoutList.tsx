@@ -20,6 +20,7 @@ export default function WorkoutList({ routineId, isEditing }: WorkoutListProps) 
   const containerRef = useRef<HTMLDivElement>(null); // 드래그 제약용 Ref 생성
 
   const handleDragEnd = () => {
+    // 드래그를 아무리 많이 해도, 드롭 시에만 네트워크 요청이 이루어지도록 처리
     const reorderedWorkoutList = workoutList.map((workout, index) => ({ ...workout, order: index }));
     mutate({ routineId, reorderedWorkoutList });
   };
