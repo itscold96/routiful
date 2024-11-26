@@ -48,7 +48,7 @@ export default function SignupForm() {
         return;
       }
 
-      addToast({ type: 'error', message: '회원가입 성공!' });
+      addToast({ type: 'success', message: '회원가입 성공!' });
       navigate('/routine');
     }
   };
@@ -57,6 +57,7 @@ export default function SignupForm() {
     <form className={S.authForm} onSubmit={handleSubmit(handleFormSubmit)}>
       <Input
         label={'이메일'}
+        type={'email'}
         htmlFor={'email'}
         register={register.email}
         error={errors.email}
