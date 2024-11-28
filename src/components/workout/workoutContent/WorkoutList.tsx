@@ -2,7 +2,7 @@ import S from './WorkoutList.module.scss';
 import { useWorkoutList } from 'queries/useSuspenseQuery/useWorkoutList';
 import WorkoutItem from './WorkoutItem';
 import { Reorder } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useReorderWorkout } from 'queries/useMutation/useReorderWorkout';
 import Empty from 'components/@shared/empty/Empty';
 interface WorkoutListProps {
@@ -24,6 +24,11 @@ export default function WorkoutList({ routineId, isEditing }: WorkoutListProps) 
     const reorderedWorkoutList = workoutList.map((workout, index) => ({ ...workout, order: index }));
     mutate({ routineId, reorderedWorkoutList });
   };
+
+  useEffect(() => {
+    // 운동 CRUD 시, 클라이언트 측에서 보여줄 운동 리스트를 최신화해야 함
+    setWorkoutList(data);
+  }, [data]);
 
   return (
     <section ref={containerRef} className={S.workoutListContainer}>
