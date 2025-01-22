@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TUTORIAL_DATA } from 'constants/tutorial';
 import classNames from 'classnames';
-import Loading from 'components/@shared/loading/Loading';
 
 // 스와이프 인식 임계값과 애니메이션 이동 거리 상수 정의
 const SWIPE_CONFIDENCE_THRESHOLD = 10000; // 스와이프 판정 기준값
@@ -11,8 +10,6 @@ const SWIPE_CONFIDENCE_THRESHOLD = 10000; // 스와이프 판정 기준값
 export default function Carousel() {
   // 현재 페이지와 방향을 상태로 관리
   const [[page, direction], setPage] = useState([0, 0]);
-  // gif 이미지 로드의 로딩 중 검사
-  const [isLoading, setIsLoading] = useState(true);
   // 현재 보여질 슬라이드의 index를 순환적으로 계산
   const carouselIndex = ((page % TUTORIAL_DATA.length) + TUTORIAL_DATA.length) % TUTORIAL_DATA.length;
 
