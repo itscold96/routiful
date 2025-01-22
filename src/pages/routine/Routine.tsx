@@ -20,6 +20,7 @@ export default function Routine() {
       addToast({ type: 'error', message: '로그아웃 실패..' });
     } else {
       setIsLoggedIn(false);
+      addToast({ type: 'success', message: '로그아웃 완료!' });
     }
   };
 
