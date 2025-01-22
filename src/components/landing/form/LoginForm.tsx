@@ -6,6 +6,7 @@ import { useValidForm } from 'hooks/useValidForm';
 import { useEffect } from 'react';
 import { FieldValues } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { useAuthAction } from 'stores/auth/action/useAuthAction';
 import { useToastAction } from 'stores/toast/action/useToastAction';
 import { ValidationConfig } from 'types/validation';
 
@@ -22,6 +23,7 @@ const validConfig: ValidationConfig = {
 
 export default function LoginForm() {
   const { register, errors, handleSubmit, reset } = useValidForm({ validationConfig: validConfig });
+  const { setIsLoggedIn } = useAuthAction();
   const { addToast } = useToastAction();
   const navigate = useNavigate();
 
@@ -38,12 +40,14 @@ export default function LoginForm() {
         } else {
           addToast({ type: 'error', message: '로그인에 실패하였습니다.' });
         }
+        setIsLoggedIn(false);
         reset();
         return;
       }
 
       addToast({ type: 'success', message: '로그인 성공!' });
-      navigate('/routine');
+      setIsLoggedIn(true);
+      navigate('/routine', { replace: true }); // 로그인 페이지로 뒤로 가기 되지 않도록 함
     }
   };
 
