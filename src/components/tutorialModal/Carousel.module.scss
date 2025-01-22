@@ -7,19 +7,20 @@
     .content {
       display: flex;
       flex-direction: column;
+      justify-content: end;
       gap: 20px;
+
+      .image {
+        width: 100%;
+        object-fit: contain; // 이미지가 잘리지 않도록 조정
+        aspect-ratio: 1;
+      }
 
       .description {
         color: $red;
         font-size: 24px;
         font-weight: 700;
         text-align: center;
-      }
-
-      .image {
-        width: 100%;
-        height: auto; // 이미지 높이를 비율에 맞게 조정
-        object-fit: contain; // 이미지가 잘리지 않도록 조정
       }
     }
   }

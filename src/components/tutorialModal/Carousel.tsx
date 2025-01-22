@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TUTORIAL_DATA } from 'constants/tutorial';
 import classNames from 'classnames';
+import Loading from 'components/@shared/loading/Loading';
 
 // 스와이프 인식 임계값과 애니메이션 이동 거리 상수 정의
 const SWIPE_CONFIDENCE_THRESHOLD = 10000; // 스와이프 판정 기준값
@@ -10,7 +11,8 @@ const SWIPE_CONFIDENCE_THRESHOLD = 10000; // 스와이프 판정 기준값
 export default function Carousel() {
   // 현재 페이지와 방향을 상태로 관리
   const [[page, direction], setPage] = useState([0, 0]);
-
+  // gif 이미지 로드의 로딩 중 검사
+  const [isLoading, setIsLoading] = useState(true);
   // 현재 보여질 슬라이드의 index를 순환적으로 계산
   const carouselIndex = ((page % TUTORIAL_DATA.length) + TUTORIAL_DATA.length) % TUTORIAL_DATA.length;
 
@@ -47,6 +49,7 @@ export default function Carousel() {
                 className={S.image}
                 src={TUTORIAL_DATA[carouselIndex].imageSrc}
                 draggable={false} // 이미지 자체 드래그 동작 비활성화
+                alt="튜토리얼 gif 이미지"
               />
               {/* 현재 슬라이드 설명 */}
               <p className={S.description}>{TUTORIAL_DATA[carouselIndex].description}</p>
@@ -57,9 +60,9 @@ export default function Carousel() {
 
       {/* 하단 도트 네비게이션 */}
       <div className={S.dotContainer}>
-        {TUTORIAL_DATA.map((_, index) => (
+        {TUTORIAL_DATA.map((image, index) => (
           <div
-            key={index}
+            key={image.imageSrc}
             className={classNames(S.dot, { [S.selected]: index === carouselIndex })} // 현재 슬라이드와 일치하면 선택 스타일 적용
           />
         ))}
