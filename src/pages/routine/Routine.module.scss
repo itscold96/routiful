@@ -6,8 +6,19 @@
   gap: 5px;
   height: 100%;
 
-  .title {
-    @include listTitle;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-bottom: 15px;
+
+    .title {
+      @include listTitle;
+    }
+
+    .button {
+      background-color: transparent;
+      color: white;
+    }
   }
 }
