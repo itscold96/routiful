@@ -9,6 +9,7 @@ import { useConfirm } from 'hooks/useConfirm';
 import { useAlert } from 'hooks/useAlert';
 import Dialog from 'components/@shared/overlay/dialog/Dialog';
 import { useToastAction } from 'stores/toast/action/useToastAction';
+import { colors } from 'constants/colors';
 
 export default function PlayList({ routineId }: { routineId: string }) {
   const { data: workoutList } = useWorkoutList(routineId);
@@ -67,9 +68,9 @@ export default function PlayList({ routineId }: { routineId: string }) {
           strokeWidth={7}
           styles={buildStyles({
             // Colors
-            pathColor: '#f92e48', // $red
-            textColor: '#f92e48', // $red
-            trailColor: '#27272a', // $gray800
+            pathColor: colors.$red,
+            textColor: colors.$red,
+            trailColor: colors.$gray800,
           })}
         >
           <div className={S.progressbarTextContainer}>

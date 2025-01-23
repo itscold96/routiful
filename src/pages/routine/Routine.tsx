@@ -8,6 +8,7 @@ import { LogOut } from 'lucide-react';
 import { logout } from 'fetches/updates/logout';
 import { useToastAction } from 'stores/toast/action/useToastAction';
 import { useAuthAction } from 'stores/auth/action/useAuthAction';
+import { colors } from 'constants/colors';
 
 export default function Routine() {
   const [keyword, setKeyword] = useState('');
@@ -29,7 +30,7 @@ export default function Routine() {
       <header className={S.header}>
         <h1 className={S.title}>루틴리스트</h1>
         <button className={S.button}>
-          <LogOut size={28} color={'#f92e48'} strokeWidth={2.5} onClick={handleLogoutClick} />
+          <LogOut size={28} color={colors.$red} strokeWidth={2.5} onClick={handleLogoutClick} />
         </button>
       </header>
       <Search setKeyword={setKeyword} />
