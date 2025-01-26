@@ -11,6 +11,9 @@
 # production
 /build
 
+# elctron
+/dist
+
 # misc
 .DS_Store
 .env.local

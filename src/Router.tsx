@@ -4,11 +4,11 @@ import Landing from 'pages/landing/Landing';
 import Play from 'pages/play/Play';
 import Routine from 'pages/routine/Routine';
 import Workout from 'pages/workout/Workout';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
 export default function Router() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Providers>
         <RootLayout>
           <Routes>
@@ -19,6 +19,6 @@ export default function Router() {
           </Routes>
         </RootLayout>
       </Providers>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
