@@ -25,7 +25,7 @@ const createWindow = () => {
   });
 
   // 앱의 index.html을 로드합니다.
-  if (!isDev) {
+  if (isDev) {
     // 개발 모드인 경우
     const baseUrl = 'http://localhost:3000';
     mainWindow.loadURL(baseUrl); // 개발 도구에서 호스팅하는 주소로 로드.
